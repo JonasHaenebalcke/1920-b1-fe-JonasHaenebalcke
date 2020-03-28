@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+
+        <mat-card-title>
+            {{ name }} 
+        </mat-card-title>
+
+        <mat-card-subtitle>
+            added on {{ dateAdded | date: "dd/MM/yyyy"}}
+        </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <h3 mat-subheader>Opmerkingen</h3>
+        <mat-list>
+            <mat-list-item *ngFor="let opmerking of opmerkingen">
+                <app-opmerking [name]="opmerking"></app-opmerking>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
