@@ -1,21 +1,16 @@
-<div fxLayout="column" fxLayoutGap="2%">
-    <app-add-quote (newQuote)="addNewQuote($event)"></app-add-quote>
-    <div
-    fxLayout="row wrap"
-    fxLayout.xs="column"
-    fxLayoutGap="0.5%"
-    fxLayoutAlign="start"
-    >
+<div *ngIf="(quotes$ | async) as quotes; else loading">
+    <div fxLayout="column" fxLayoutGap="2%">
+        <app-add-quote (newQuote)="addNewQuote($event)"></app-add-quote>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start">
 
-        <div 
-            class="quote"
-            *ngFor="let localQuote of quotes$ | async"
-            fxFlex="0 0 calc(25%-0.5%)"
-            fxFlex.xs="100%"
-        >
-        
-            <app-quote [quote]="localQuote"></app-quote>
-        
+            <div class="quote" *ngFor="let localQuote of quotes$ | async" fxFlex="0 0 calc(100%-0.5%)" fxFlex.xs="100%">
+
+                <app-quote [quote]="localQuote"></app-quote>
+
+            </div>
         </div>
     </div>
+</div>
+<div #loading>
+    Loading..
 </div>

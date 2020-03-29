@@ -1,7 +1,9 @@
+import { Quote } from './quote.model';
+
 interface AuteurJson {
    voornaam: string,
    achternaam: string,
-   quotes: string[],
+   quotes: Quote[],
    geboorteDatum: string,
    omschrijving: string,
    id: string,
@@ -13,10 +15,11 @@ interface AuteurJson {
     constructor(
         private _voornaam: string,
         private _achternaam: string,
-        private _quotes = new Array<string>(),//Is nog string voor nu omdat ik niet weet hoe objecten werken
+       //Is nog string voor nu omdat ik niet weet hoe objecten werken
         private _geboorteDatum = new Date(),
         private _omschrijving: string,
         private _id: number,
+        private _quotes? ,
         private _sterfDatum?: Date,
         private _foto?: string
       ) {}
@@ -73,7 +76,7 @@ public set voornaam(value: string) {
 //#endregion
 
     static fromJSON(json: AuteurJson): Auteur {
-      const auteur = new Auteur(json.voornaam, json.achternaam, json.quotes, new Date(json.geboorteDatum), json.omschrijving, Number(json.id), new Date(json.sterfDatum), json.foto);
+      const auteur = new Auteur(json.voornaam, json.achternaam, new Date(json.geboorteDatum), json.omschrijving, Number(json.id), json.quotes, new Date(json.sterfDatum), json.foto);
       return auteur;
     }
   

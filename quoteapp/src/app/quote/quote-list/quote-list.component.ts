@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QUOTES } from '../mock-quotes';
 import { Quote } from '../quote.model';
 import { QuoteDataService } from '../quote-data.service';
 import { Observable } from 'rxjs';

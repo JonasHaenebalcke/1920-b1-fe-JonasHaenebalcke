@@ -1,11 +1,12 @@
 import { Opmerking } from './opmerking.model';
+import { Auteur } from './auteur.model';
 
 interface QuoteJson {
     inhoud: string;
     rating: string;
     date: string;
-    opmerkingen: string[];
-    auteur: string;
+    opmerkingen?: Opmerking[];
+    auteur: Auteur;
     id: string;
   }
 export class Quote {
@@ -14,8 +15,8 @@ export class Quote {
         private _inhoud: string,
         private _rating: number,
         private _date = new Date,
-        private _opmerkingen =  new Array<string>(),//Is nog string voor nu omdat ik niet weet hoe objecten werken
-        private _auteur: string,//Is nog string voor nu omdat ik niet weet hoe objecten werken
+        private _opmerkingen =  new Array<Opmerking>(),//Is nog string voor nu omdat ik niet weet hoe objecten werken
+        private _auteur: Auteur,//Is nog string voor nu omdat ik niet weet hoe objecten werken
         private _id: number
     ){}
 
@@ -59,7 +60,7 @@ export class Quote {
     }
     //#endregion
 
-    addOpmerking(opmerking: string){
+    addOpmerking(opmerking: Opmerking){
         this._opmerkingen.push(opmerking);
     }
 

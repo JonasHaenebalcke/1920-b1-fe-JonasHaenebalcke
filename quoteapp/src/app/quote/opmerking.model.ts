@@ -1,20 +1,21 @@
 import { Quote } from '@angular/compiler';
+import { Auteur } from './auteur.model';
 
 interface OpmerkingJson {
     inhoud: string;
     rating: string;
     date: string;
-    quote: string,
-    auteur: string;
+    quote: Quote,
+    auteur: Auteur;
     id: string;
 }
 export class Opmerking {
     constructor(
         private _inhoud: string,
         private _rating: number,
-        private _quote: string,//Is nog string voor nu omdat ik niet weet hoe objecten werken
+        private _quote: Quote,
         private _date = new Date,
-        private _auteur: string,//Is nog string voor nu omdat ik niet weet hoe objecten werken
+        private _auteur: Auteur,
         private _id: number
     ) { }
 

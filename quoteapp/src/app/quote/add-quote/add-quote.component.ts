@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Quote } from '../quote.model';
+import { Opmerking } from '../opmerking.model';
+import { Auteur } from '../auteur.model';
 
 @Component({
   selector: 'app-add-quote',
@@ -16,7 +18,7 @@ export class AddQuoteComponent implements OnInit {
 
   addQuote(quoteInhoud: HTMLInputElement): boolean{
     
-    const quote = new Quote(quoteInhoud.value, 0, new Date(), ['opmerking', 'nog een opmerking'], 'Wout', 1);
+    const quote = new Quote(quoteInhoud.value, 0, new Date(), null, new Auteur('voornaam', 'achternaam', new Date(), 'omschrijving', 1, null, null, null), 1);
     this.newQuote.emit(quote);
     return false;
   }
