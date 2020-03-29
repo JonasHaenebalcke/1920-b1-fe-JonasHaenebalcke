@@ -2,7 +2,7 @@
     <mat-card-header>
 
         <mat-card-title>
-            {{ quote.auteur }} 
+            {{ quote.auteur.voornaam }} 
         </mat-card-title>
 
         <mat-card-subtitle>
@@ -22,7 +22,7 @@
         <h3>Opmerkingen</h3>
         <ul>
             <li *ngFor="let opmerking of quote.opmerkingen">
-                    {{opmerking}}
+                    {{opmerking.inhoud}}
             </li>
         </ul>
     <br>

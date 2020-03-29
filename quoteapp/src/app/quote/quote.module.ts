@@ -11,6 +11,7 @@ import { AddQuoteComponent } from './add-quote/add-quote.component';
 import { AddOpmerkingComponent } from './add-opmerking/add-opmerking.component';
 import { AddAuteurComponent } from './add-auteur/add-auteur.component';
 import { AuteurListComponent } from './auteur-list/auteur-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,8 +19,9 @@ import { AuteurListComponent } from './auteur-list/auteur-list.component';
   declarations: [QuoteComponent, OpmerkingComponent, AuteurComponent, QuoteListComponent, OpmerkingListComponent, AddQuoteComponent, AddOpmerkingComponent, AddAuteurComponent, AuteurListComponent],
   imports: [
     CommonModule, 
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  exports: [QuoteListComponent]
+  exports: [QuoteListComponent, QuoteComponent]
 })
 export class QuoteModule { }

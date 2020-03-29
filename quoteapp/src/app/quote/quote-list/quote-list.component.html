@@ -9,7 +9,7 @@
 
         <div 
             class="quote"
-            *ngFor="let localQuote of quotes"
+            *ngFor="let localQuote of quotes$ | async"
             fxFlex="0 0 calc(25%-0.5%)"
             fxFlex.xs="100%"
         >
