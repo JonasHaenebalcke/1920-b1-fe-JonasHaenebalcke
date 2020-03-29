@@ -2,11 +2,11 @@
     <mat-card-header>
 
         <mat-card-title>
-            {{ name }} 
+            {{ quote.auteur }} 
         </mat-card-title>
 
         <mat-card-subtitle>
-            added on {{ dateAdded | date: "dd/MM/yyyy"}}
+            added on {{ quote.date | date: "dd/MM/yyyy"}}
         </mat-card-subtitle>
 
     </mat-card-header>
@@ -15,9 +15,11 @@
 
         <h3 mat-subheader>Opmerkingen</h3>
         <mat-list>
-            <mat-list-item *ngFor="let opmerking of opmerkingen">
-                <app-opmerking [name]="opmerking"></app-opmerking>
+            <mat-list-item *ngFor="let opmerking of quote.opmerkingen">
+                <app-opmerking [opmerking] = "opmerking"></app-opmerking>
             </mat-list-item>
         </mat-list>
+
+        {{quote.inhoud}}
     </mat-card-content>
 </mat-card>

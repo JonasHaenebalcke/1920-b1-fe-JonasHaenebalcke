@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Opmerking } from '../opmerking.model';
 
 @Component({
   selector: 'app-opmerking',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./opmerking.component.css']
 })
 export class OpmerkingComponent implements OnInit {
-@Input() name : string;
+@Input() opmerking : Opmerking;
   constructor() { }
 
   ngOnInit(): void {
