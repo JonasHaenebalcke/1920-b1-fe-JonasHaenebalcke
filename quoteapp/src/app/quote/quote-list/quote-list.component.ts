@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QUOTES } from '../mock-quotes';
 import { Quote } from '../quote.model';
+import { QuoteDataService } from '../quote-data.service';
 
 @Component({
   selector: 'app-quote-list',
@@ -9,16 +10,16 @@ import { Quote } from '../quote.model';
 })
 export class QuoteListComponent implements OnInit {
   private _quotes = QUOTES;
-  constructor() { }
+  constructor(private _quoteDataService: QuoteDataService) { }
 
   ngOnInit(): void {
   }
 
   get quotes(){
-    return this._quotes;
+    return this._quoteDataService.quotes;
   }
 
   addNewQuote(quote: Quote){
-    this._quotes.push(quote);
+    this._quoteDataService.addNewQuote(quote);
   }
 }

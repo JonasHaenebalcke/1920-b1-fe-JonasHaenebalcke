@@ -13,13 +13,19 @@
 
     <mat-card-content>
 
-        <h3 mat-subheader>Opmerkingen</h3>
+        <!-- <h3 mat-subheader>Opmerkingen</h3>
         <mat-list>
             <mat-list-item *ngFor="let opmerking of quote.opmerkingen">
                 <app-opmerking [opmerking] = "opmerking"></app-opmerking>
             </mat-list-item>
-        </mat-list>
-
+        </mat-list> -->
+        <h3>Opmerkingen</h3>
+        <ul>
+            <li *ngFor="let opmerking of quote.opmerkingen">
+                    {{opmerking}}
+            </li>
+        </ul>
+    <br>
         {{quote.inhoud}}
     </mat-card-content>
 </mat-card>
