@@ -7,7 +7,7 @@
 
         <mat-card-subtitle>
             {{quote.auteur.voornaam}} {{quote.auteur.achternaam}}
-            <br> -  {{ quote.date | date: "dd/MM/yyyy"}}
+            <br> - {{ quote.date | date: "dd/MM/yyyy"}}
         </mat-card-subtitle>
 
     </mat-card-header>
@@ -21,6 +21,35 @@
             </li>
         </ul>
         <br>
+
+        <div>
+            <button (click)="upVote()" mat-raised-button>
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
+
+            <div>
+                <br>
+                <div> {{quote.rating}}</div>
+                <br>
+            </div>
+
+            <button (click)="downVote()" mat-raised-button>
+                <mat-icon>arrow_downward</mat-icon>
+            </button>
+
+            <mat-icon> comment</mat-icon>
+        </div>
+
+
+        <!-- 
+        <form>
+            <input matInput placeholder="inhoud" type="text" #newquoteinhoud />
+        </form>
+        <button (click)="addQuote(newquoteinhoud)" mat-raised-button>
+            Add new quote
+        </button> -->
+
+
 
     </mat-card-content>
 </mat-card>

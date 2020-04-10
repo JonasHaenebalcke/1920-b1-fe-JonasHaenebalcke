@@ -18,4 +18,13 @@ export class QuoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upVote(): void {
+    this.quote.rating ++;
+    console.log("upvote");
+  }
+
+  downVote(): void {
+    this.quote.rating --;
+  }
+
 }
