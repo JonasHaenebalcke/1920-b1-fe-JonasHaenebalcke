@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from '../quote.model';
 import { QuoteDataService } from '../quote-data.service';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
+import { catchError } from 'rxjs/internal/operators/catchError';
 
 @Component({
   selector: 'app-quote-list',
@@ -10,11 +11,17 @@ import { Observable } from 'rxjs';
 })
 export class QuoteListComponent implements OnInit {
   private _fetchQuotes$: Observable<Quote[]>
-    = this._quoteDataService.quotes$;
+  public errorMessage: string = '';
 
   constructor(private _quoteDataService: QuoteDataService) { }
 
   ngOnInit(): void {
+    this._fetchQuotes$ = this._quoteDataService.quotes$.pipe(
+      catchError(err => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+    );
   }
 
   get quotes$(): Observable<Quote[]>{

@@ -1,4 +1,4 @@
-<div *ngIf="(quotes$ | async) as quotes; else loading">
+<div *ngIf="(quotes$ | async) as quotes; else loadingOrError">
     <div fxLayout="column" fxLayoutGap="2%">
         <app-add-quote (newQuote)="addNewQuote($event)"></app-add-quote>
         <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start">
@@ -11,6 +11,13 @@
         </div>
     </div>
 </div>
-<div #loading>
-    Loading..
-</div>
+
+<ng-template #loadingOrError>
+    <div class="error" *ngIf="errorMessage; else loading">
+        Error loading the quotes list: {{ errorMessage }}. <br />
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
