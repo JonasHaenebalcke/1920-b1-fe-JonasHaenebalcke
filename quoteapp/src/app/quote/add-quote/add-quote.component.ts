@@ -18,7 +18,7 @@ export class AddQuoteComponent implements OnInit {
 
   addQuote(quoteInhoud: HTMLInputElement): boolean{
     
-    const quote = new Quote(quoteInhoud.value, 0, new Date(), null, new Auteur('voornaam', 'achternaam', new Date(), 'omschrijving', 1, null, null, null), 1);
+    const quote = new Quote(quoteInhoud.value, 0, new Date(), null, new Auteur('voornaam', 'achternaam', new Date(), 'omschrijving', 1, null, null, null));
     this.newQuote.emit(quote);
     return false;
   }

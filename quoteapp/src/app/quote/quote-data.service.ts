@@ -23,6 +23,10 @@ export class QuoteDataService {
   }
 
   addNewQuote(quote: Quote) {
+    return this.http
+    .post(`${environment.apiUrl}/quotes/`, quote.toJSON())
+    .pipe(catchError(this.handleError), map(Quote.fromJSON))
+    .subscribe();
   }
 
   handleError(err: any): Observable<never>  {
