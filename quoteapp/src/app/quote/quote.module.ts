@@ -12,16 +12,18 @@ import { AddOpmerkingComponent } from './add-opmerking/add-opmerking.component';
 import { AddAuteurComponent } from './add-auteur/add-auteur.component';
 import { AuteurListComponent } from './auteur-list/auteur-list.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [QuoteComponent, OpmerkingComponent, AuteurComponent, QuoteListComponent, OpmerkingListComponent, AddQuoteComponent, AddOpmerkingComponent, AddAuteurComponent, AuteurListComponent],
+  declarations: [QuoteComponent, OpmerkingComponent, AuteurComponent, QuoteListComponent, OpmerkingListComponent, AddQuoteComponent, AddOpmerkingComponent, AddAuteurComponent, AuteurListComponent, PageNotFoundComponent],
   imports: [
     CommonModule, 
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  exports: [QuoteListComponent, QuoteComponent]
+  exports: [QuoteListComponent, QuoteComponent, AddQuoteComponent]
 })
 export class QuoteModule { }

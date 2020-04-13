@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -20,7 +23,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatIconModule,
     MatFormFieldModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   exports: [
     CommonModule,
@@ -30,7 +36,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatIconModule,
     MatFormFieldModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

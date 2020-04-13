@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, tap, delay, catchError } from 'rxjs/operators';
+import { Auteur } from './auteur.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,28 @@ export class QuoteDataService {
       )
     );
   }
+
+  get auteurs$(): Observable<Auteur[]> {
+    console.log("auteurs");
+    return this.http.get(`${environment.apiUrl}/auteurs/`).pipe(
+      tap(console.log),
+      catchError(this.handleError),
+      map(
+        (list: any[]): Auteur[] => list.map(Auteur.fromJSON)
+      )
+    );
+  }
+
+  // get auteurByName(): Observable<Auteur> {
+  //    console.log("auteurs");
+  //   return this.http.get(`${environment.apiUrl}/auteurs/`).pipe(
+  //     tap(console.log),
+  //     catchError(this.handleError),
+  //     map(
+  //       (auteur : Auteur) =>
+  //     )
+  //   );
+  // }
 
   addNewQuote(quote: Quote) {
     return this.http

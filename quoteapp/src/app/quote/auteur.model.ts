@@ -12,6 +12,7 @@ interface AuteurJson {
   }
   export class Auteur {
    
+   
     constructor(
         private _voornaam: string,
         private _achternaam: string,
@@ -79,5 +80,7 @@ public set voornaam(value: string) {
       const auteur = new Auteur(json.voornaam, json.achternaam, new Date(json.geboorteDatum), json.omschrijving, Number(json.id), json.quotes, new Date(json.sterfDatum), json.foto);
       return auteur;
     }
+
+   
   
   }

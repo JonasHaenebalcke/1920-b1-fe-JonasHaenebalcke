@@ -1,8 +1,47 @@
 <mat-card>
-  <form>
-    <input matInput placeholder="inhoud" type="text" #newquoteinhoud />
-  </form>
-  <button (click)="addQuote(newquoteinhoud)" mat-raised-button>
-    Add new quote
-  </button>
+  <mat-card-title>Voeg Quote toe</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="quote" (ngSubmit)='onSubmit()'>
+
+      <!-- Inputs -->
+      <div>
+        <label>Inhoud van quote</label> <br>
+        <input matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" />
+      </div>
+
+      <div>
+        <label>Datum</label> <br>
+        <input matInput [matDatepicker]="picker" placeholder="Kies datum" aria-label="datum" formControlName="datum">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+
+      <!-- <div>
+        <mat-select placeholder="Auteur" aria-label="auteur"
+        formControlName="auteur">
+        <mat-option *ngFor="let auteur of auteurs$ | async">
+         {{ auteur.voornaam}} {{auteur.achternaam}}
+        </mat-option>
+      </mat-select>
+      </div> -->
+
+      <!-- Errors -->
+      <mat-error *ngIf="quote.get('inhoud')['errors']?.required && 
+            quote.get('inhoud').touched">
+        Inhoud van quote is niet geldig
+        <br>
+      </mat-error>
+
+      <mat-error *ngIf="quote.get('datum')['errors']?.required && 
+      quote.get('datum').touched">
+        Datum is niet geldig
+        <br>
+      </mat-error>
+
+      <!-- button -->
+      <button type="submit" mat-raised-button [disabled]='!quote.valid'>
+        Voeg toe
+      </button>
+    </form>
+  </mat-card-content>
 </mat-card>
