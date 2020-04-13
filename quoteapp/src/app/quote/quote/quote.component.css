@@ -1,0 +1,10 @@
+.commentIcon{
+    margin: 15px;
+    width: 24px;
+    height: 24px;
+    transform: scale(2);
+}
+
+.commentIconContainer{
+    padding: 5px;
+}
