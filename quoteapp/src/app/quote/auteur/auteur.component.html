@@ -1,1 +1,12 @@
-<p>auteur works!</p>
+<hr>
+<h3>{{ auteur.voornaam }} {{ auteur.achternaam }}</h3>
+
+<h5>Quotes</h5>
+<ul>
+    <li *ngFor="let quote of auteur.quotes">
+        {{quote.inhoud}}
+    </li>
+</ul>
+
+<h5>Omschrijving</h5>
+<p>{{auteur.omschrijving}}</p>

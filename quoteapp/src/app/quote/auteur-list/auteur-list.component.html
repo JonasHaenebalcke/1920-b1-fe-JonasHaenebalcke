@@ -1,1 +1,23 @@
-<p>auteur-list works!</p>
+<div *ngIf="(auteurs$ | async) as auteurs; else loadingOrError">
+    <div fxLayout="column" fxLayoutGap="2%">
+        <app-add-auteur></app-add-auteur>
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start">
+
+            <div class="auteur" *ngFor="let localAuteur of auteurs$ | async" fxFlex="0 0 calc(100%-0.5%)" fxFlex.xs="100%">
+
+                <app-auteur [auteur]="localAuteur"></app-auteur>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingOrError>
+    <div class="error" *ngIf="errorMessage; else loading">
+        Error loading the auteur list: {{ errorMessage }}. <br />
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template> 
