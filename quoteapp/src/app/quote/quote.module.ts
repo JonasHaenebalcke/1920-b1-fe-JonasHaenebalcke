@@ -14,15 +14,25 @@ import { AuteurListComponent } from './auteur-list/auteur-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { QuoteDetailComponent } from './quote-detail/quote-detail.component';
+import { RouterModule, Routes } from '@angular/router';
+import { QuoteResolverService } from '../quote-resolver.service';
 
+const appRoutes: Routes = [
+  { path: 'quote/list', component: QuoteListComponent },
+  { path: 'auteur/list', component: AuteurListComponent },
+  { path: 'quote/detail/:id', component: QuoteDetailComponent,
+  resolve: { quote: QuoteResolverService}}
+];
 
 @NgModule({
-  declarations: [QuoteComponent, OpmerkingComponent, AuteurComponent, QuoteListComponent, OpmerkingListComponent, AddQuoteComponent, AddOpmerkingComponent, AddAuteurComponent, AuteurListComponent, PageNotFoundComponent],
+  declarations: [QuoteComponent, OpmerkingComponent, AuteurComponent, QuoteListComponent, OpmerkingListComponent, AddQuoteComponent, AddOpmerkingComponent, AddAuteurComponent, AuteurListComponent, PageNotFoundComponent, QuoteDetailComponent],
   imports: [
     CommonModule, 
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild(appRoutes)
   ],
   exports: [QuoteListComponent, QuoteComponent, AddQuoteComponent]
 })

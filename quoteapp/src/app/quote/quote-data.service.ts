@@ -10,6 +10,7 @@ import { Auteur } from './auteur.model';
   providedIn: 'root'
 })
 export class QuoteDataService {
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +22,12 @@ export class QuoteDataService {
         (list: any[]): Quote[] => list.map(Quote.fromJSON)
       )
     );
+  }
+
+  getQuote(id: string): Observable<Quote> {
+    return this.http
+      .get(`${environment.apiUrl}/quotes/${id}`)
+      .pipe(catchError(this.handleError), map(Quote.fromJSON)); // returns just one recipe, as json
   }
 
   get auteurs$(): Observable<Auteur[]> {
@@ -62,4 +69,6 @@ export class QuoteDataService {
     console.error(err);
     return throwError(errorMessage);
   }
+
+  
 }

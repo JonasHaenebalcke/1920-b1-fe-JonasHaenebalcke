@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header>
+
+        <mat-card-title>
+            {{quote.inhoud}}
+        </mat-card-title>
+
+        <mat-card-subtitle>
+            {{quote.auteur.voornaam}} {{quote.auteur.achternaam}}
+            <br> - {{ quote.date | date: "dd/MM/yyyy"}}
+        </mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>
+
+
+        <h5>Opmerkingen</h5>
+        <ul>
+            <li *ngFor="let opmerking of quote.opmerkingen">
+                {{opmerking.inhoud}}
+            </li>
+        </ul>
+        <br>
+
+       
+
+        <!-- 
+        <form>
+            <input matInput placeholder="inhoud" type="text" #newquoteinhoud />
+        </form>
+        <button (click)="addQuote(newquoteinhoud)" mat-raised-button>
+            Add new quote
+        </button> -->
+
+
+
+    </mat-card-content>
+</mat-card>

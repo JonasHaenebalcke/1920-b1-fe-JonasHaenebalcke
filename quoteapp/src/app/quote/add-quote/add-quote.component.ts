@@ -31,8 +31,8 @@ export class AddQuoteComponent implements OnInit {
 
     this.quote = this.fb.group({
       inhoud: ['', Validators.required],
-      datum: [new Date().toDateString, Validators.required],
-      auteur: ['', Validators.required]      
+      datum: [new Date().toDateString, Validators.required]
+      // auteur: ['', Validators.required]      
     });
     
   }
