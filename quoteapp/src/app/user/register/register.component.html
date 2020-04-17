@@ -1,0 +1,94 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+  <mat-card>
+    <form [formGroup]="user" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column">
+        <span fxLayout="row" fxLayoutGap="2%">
+          <div class="spacing">
+            <label>Voornaam</label><br>
+            <input matInput aria-label="voornaam" data-cy="register-voornaam" formControlName="voornaam" />
+            <mat-error *ngIf="
+                  user.get('voornaam').errors && user.get('voornaam').touched
+                ">
+              <br>
+              {{ getErrorMessage(user.get('voornaam').errors) }}
+            </mat-error>
+          </div>
+          <div class="spacing">
+            <label>Achternaam</label><br>
+            <input matInput aria-label="achternaam" data-cy="register-achternaam" formControlName="achternaam" />
+            <mat-error *ngIf="
+                  user.get('achternaam').errors && user.get('achternaam').touched
+                ">
+              <br>
+              {{ getErrorMessage(user.get('achternaam').errors) }}
+            </mat-error>
+          </div>
+        </span>
+        <div class="spacing">
+          <label>Gebruikersnaam</label><br>
+          <input matInput aria-label="gebruikersnaam" data-cy="register-gebruikersnaam"
+            formControlName="gebruikersnaam" />
+          <mat-error *ngIf="user.get('gebruikersnaam').errors && user.get('gebruikersnaam').touched">
+            <br>
+            {{ getErrorMessage(user.get('gebruikersnaam').errors) }}
+          </mat-error>
+        </div>
+        <span fxLayout="column" formGroupName="passwordGroup">
+          <div class="spacing">
+            <label>Wachtwoord</label><br>
+            <input type="password" matInput aria-label="wachtwoord" data-cy="register-wachtwoord"
+              formControlName="wachtwoord" />
+            <mat-error *ngIf="
+                  user.get('passwordGroup').get('wachtwoord').errors &&
+                  user.get('passwordGroup').get('wachtwoord').touched
+                ">
+              <br>
+              {{
+                  getErrorMessage(
+                    user.get('passwordGroup').get('wachtwoord').errors
+                  )
+                }}
+            </mat-error>
+          </div>
+          <div class="spacing">
+            <label>Bevestig wachtwoord</label> <br>
+            <input type="password" matInput aria-label="bevestigWachtwoord" data-cy="register-bevestigWachtwoord"
+              formControlName="bevestigWachtwoord" />
+            <mat-error *ngIf="
+                  user.get('passwordGroup').get('bevestigWachtwoord').errors &&
+                  user.get('passwordGroup').get('bevestigWachtwoord').touched
+                ">
+              <br>
+              {{
+                  getErrorMessage(
+                    user.get('passwordGroup').get('bevestigWachtwoord').errors
+                  )
+                }}
+            </mat-error>
+          </div>
+          <mat-error *ngIf="
+                user.get('passwordGroup').errors &&
+                user.get('passwordGroup').get('bevestigWachtwoord').touched &&
+                user.get('passwordGroup').get('wachtwoord').touched
+              ">
+              <br>
+            {{ getErrorMessage(user.get('passwordGroup').errors) }}
+          </mat-error>
+        </span>
+      </mat-card-content>
+
+      <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+
+
+        <div> <a [routerLink]="['/login']">Ik heb al een account</a></div>
+
+        <button mat-raised-button type="submit" color="primary" data-cy="register-button">
+          Register
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

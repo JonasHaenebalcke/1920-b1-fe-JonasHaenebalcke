@@ -1,0 +1,35 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+    <mat-card style="width: 35%;">
+        <form [formGroup]="user" (ngSubmit)="onSubmit()">
+            <mat-card-header>
+                <mat-card-title>Aanmelden </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content fxLayout="column">
+
+                <div class="spacing">
+                    <label>Gebruikersnaam</label><br>
+                    <input matInput placeholder="gebruikersnaam" aria-label="gebruikersnaam"
+                        data-cy="login-gebruikersnaam" formControlName="gebruikersnaam" />
+
+                </div>
+                    
+                <div class="spacing">
+                    <label>Wachtwoord</label><br>
+                    <input type="password" matInput placeholder="wachtwoord" aria-label="wachtwoord"
+                        data-cy="login-wachtwoord" formControlName="wachtwoord" />
+                </div>
+            </mat-card-content>
+            <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+                <a [routerLink]="['/register']" >Registreer</a>
+
+                <button mat-raised-button type="submit" color="primary" data-cy="login-button">
+                    Login
+                </button>
+            </mat-card-actions>
+        </form>
+        <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
+            got an error while loading the quote list: {{ errorMessage }}
+        </mat-card>
+    </mat-card>
+</div>
