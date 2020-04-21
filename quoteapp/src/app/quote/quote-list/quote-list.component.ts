@@ -28,7 +28,7 @@ export class QuoteListComponent implements OnInit {
    return this._fetchQuotes$;
   }
 
-  addNewQuote(quote: Quote){
-    this._quoteDataService.addNewQuote(quote);
-  }
+  // addNewQuote(quote: Quote){
+  //   this._quoteDataService.addNewQuote(quote);
+  // }
 }

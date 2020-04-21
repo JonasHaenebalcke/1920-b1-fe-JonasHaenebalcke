@@ -35,7 +35,7 @@ export class AddQuoteComponent implements OnInit {
     this.quote = this.fb.group({
       inhoud: ['', Validators.required],
       datum: [new Date().toDateString, Validators.required],
-      // auteur: ['']
+      auteur: ['']
     });
 
   }
@@ -46,38 +46,68 @@ export class AddQuoteComponent implements OnInit {
   }
 
   onSubmit() {
-
-    this._quoteDataService.addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, new Auteur("dat", "boi", "riding a bike", null, null, null), null))
-
+    // console.log(this.quote.value.inhoud + this.quote.value.datum)
     // this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
-    //   .subscribe(auteur => this._quoteDataService.addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, new Auteur("dat", "boi", "riding a bike", null, null, null), null)));
-
-    // timeout(2000);
-
-    //  console.log(this.auteur);
-    // this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
-    // .subscribe(auteur => this.newQuote.emit(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, auteur)));
+    // .subscribe(auteur => console.log(auteur.voornaam));
 
 
-    // this._fetchAuteurs$.subscribe(a => console.log(a.filter(a => a.achternaam == this.quote.value.achternaam).find(isNullOrUndefined)));
 
-    // this._fetchAuteurs$.subscribe(a => this.auteur = a.find(a => a.achternaam == this.quote.value.achternaam));
-    // console.log(this.auteur);
 
-    //  console.log(this.auteur);
 
-    // setTimeout(function () {
-    //   if (this.auteur == undefined) {
-    //     console.log(this.auteur);
-    //   }
-    // }, 1000);
 
-    // this._quoteDataService
-    // .addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, this.auteur, null))
-    // .;
+
+
+    this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
+      .subscribe(auteur => this._quoteDataService
+        .addNewQuote(new Quote(this.quote.value.inhoud, this.quote.value.datum, null, auteur.id, null, null, null)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   }
+  // this._quoteDataService.addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, new Auteur("dat", "boi", "riding a bike", null, null, null), null))
+
+  // this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
+  //   .subscribe(auteur => this._quoteDataService.addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, new Auteur("dat", "boi", "riding a bike", null, null, null), null)));
+
+  // timeout(2000);
+
+  //  console.log(this.auteur);
+  // this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
+  // .subscribe(auteur => this.newQuote.emit(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, auteur)));
+
+
+  // this._fetchAuteurs$.subscribe(a => console.log(a.filter(a => a.achternaam == this.quote.value.achternaam).find(isNullOrUndefined)));
+
+  // this._fetchAuteurs$.subscribe(a => this.auteur = a.find(a => a.achternaam == this.quote.value.achternaam));
+  // console.log(this.auteur);
+
+  //  console.log(this.auteur);
+
+  // setTimeout(function () {
+  //   if (this.auteur == undefined) {
+  //     console.log(this.auteur);
+  //   }
+  // }, 1000);
+
+  // this._quoteDataService
+  // .addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, this.auteur, null))
+  // .;
+
+
+
   //  this.newQuote.emit(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, new Auteur('voornaam', 'achternaam', new Date(), 'omschrijving', 1, null, null, null)));
   //  this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
   //   .subscribe(auteur => console.log(auteur));

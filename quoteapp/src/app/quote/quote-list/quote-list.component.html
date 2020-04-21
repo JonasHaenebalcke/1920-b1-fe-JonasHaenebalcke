@@ -1,6 +1,7 @@
 <div *ngIf="(quotes$ | async) as quotes; else loadingOrError">
     <div fxLayout="column" fxLayoutGap="2%">
-        <app-add-quote (newQuote)="addNewQuote($event)"></app-add-quote>
+        <!-- <app-add-quote (newQuote)="addNewQuote($event)"></app-add-quote> -->
+        <app-add-quote></app-add-quote>
         <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start">
 
             <div class="quote" *ngFor="let localQuote of quotes$ | async" fxFlex="0 0 calc(100%-0.5%)" fxFlex.xs="100%">

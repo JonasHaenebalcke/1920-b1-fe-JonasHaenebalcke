@@ -6,7 +6,8 @@ export interface QuoteJson {
     rating?: string;
     date: string;
     opmerkingen?: Opmerking[];
-    auteur: Auteur;
+    auteurId: number;
+    auteur?: Auteur;
     id?: string;
 
     
@@ -15,11 +16,12 @@ export class Quote {
 
 
     constructor(
-        private _inhoud: string,
-        private _rating: number,
+        private _inhoud: string,      
         private _date = new Date,
-        private _opmerkingen = new Array<Opmerking>(),//Is nog string voor nu omdat ik niet weet hoe objecten werken
-        private _auteur: Auteur,//Is nog string voor nu omdat ik niet weet hoe objecten werken
+        private _opmerkingen = new Array<Opmerking>(),
+        private _auteurId?: number,
+        private _auteur?: Auteur,
+        private _rating?: number,
         private _id?: number
     ) { }
 
@@ -29,15 +31,24 @@ export class Quote {
     }
 
     static fromJSON(json: QuoteJson): Quote {
-        const quote = new Quote(json.inhoud, Number(json.rating), new Date(json.date), json.opmerkingen, json.auteur, Number(json.id));
+        const quote = new Quote(json.inhoud, new Date(json.date), null, null, json.auteur, Number(json.rating), Number(json.id));
         return quote;
     }
 
     toJSON(): QuoteJson {
-        return { inhoud: this.inhoud, date: this.date.toDateString(),  auteur: this.auteur };
+        console.log("TO JSON")
+        console.log(this.auteurId);
+        return { inhoud: this.inhoud, date: this.date.toDateString(), auteurId: this.auteurId };
     }
-
+xx
     //#region Getters & Setter
+
+    public get auteurId(): number {
+        return this._auteurId;
+    }
+    public set auteurId(value: number) {
+        this.auteurId = value;
+    }
     public get id(): number {
         return this._id;
     }

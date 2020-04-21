@@ -67,7 +67,8 @@ export class QuoteDataService {
 
   addNewQuote(quote: Quote) {
     console.log(quote);
-    return this.http
+    console.log(quote.auteurId);
+    return this.http    
     .post(`${environment.apiUrl}/quotes/`, quote.toJSON())
     .pipe(catchError(this.handleError), map(Quote.fromJSON))
     .subscribe();

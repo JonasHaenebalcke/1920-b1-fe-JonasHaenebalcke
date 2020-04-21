@@ -60,7 +60,7 @@ export class Opmerking {
     //#endregion
 
     static fromJSON(json: OpmerkingJson): Opmerking {
-        const opmerking = new Opmerking(json.inhoud,  new Date(json.date), json.auteur, Number(json.id));
+        const opmerking = new Opmerking(json.inhoud, new Date(json.date), json.auteur, Number(json.rating), Number(json.id));
         return opmerking;
     }
 
