@@ -1,2 +1,38 @@
-{{ opmerking.inhoud }} 
-{{ opmerking.rating }}
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+    <mat-card style="width: 40%;">
+        <mat-card>
+            <mat-card-header>
+
+                <mat-card-title>
+                    {{opmerking.inhoud}}
+                </mat-card-title>
+
+                <mat-card-subtitle>
+                    {{ opmerking.date | date: "dd/MM/yyyy HH:mm"}}<br>
+                    {{opmerking.auteur}}
+                </mat-card-subtitle>
+
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <button (click)="upVote()" mat-raised-button>
+                        <mat-icon>arrow_upward</mat-icon>
+                    </button>
+
+                    <div>
+                        <br>
+                        <div> {{opmerking.rating}}</div>
+                        <br>
+                    </div>
+
+                    <button (click)="downVote()" mat-raised-button>
+                        <mat-icon>arrow_downward</mat-icon>
+                    </button>
+
+                    <div style="padding: 15px;">
+                        <app-add-opmerking [quote]="quote"></app-add-opmerking>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-card>

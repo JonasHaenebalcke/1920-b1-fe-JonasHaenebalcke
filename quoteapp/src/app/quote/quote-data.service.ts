@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, tap, delay, catchError } from 'rxjs/operators';
 import { Auteur } from './auteur.model';
+import { Opmerking } from './opmerking.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,17 @@ export class QuoteDataService {
       .pipe(catchError(this.handleError), map(Quote.fromJSON)); // returns just one recipe, as json
   }
 
+  
+  getauteur$(naam: string): Observable<Auteur> {
+    return this.http.get(`${environment.apiUrl}/auteurs/${naam}`)
+    .pipe(tap(console.log),
+      catchError(this.handleError),
+      map(
+        (Auteur.fromJSON)
+      )
+    );
+  }
+
   get auteurs$(): Observable<Auteur[]> {
     console.log("auteurs");
     return this.http.get(`${environment.apiUrl}/auteurs/`).pipe(
@@ -40,6 +52,7 @@ export class QuoteDataService {
       )
     );
   }
+
 
   // get auteurByName(): Observable<Auteur> {
   //    console.log("auteurs");
@@ -53,9 +66,16 @@ export class QuoteDataService {
   // }
 
   addNewQuote(quote: Quote) {
+    console.log(quote);
     return this.http
     .post(`${environment.apiUrl}/quotes/`, quote.toJSON())
     .pipe(catchError(this.handleError), map(Quote.fromJSON))
+    .subscribe();
+  }
+
+  addNewOpmerking(id: number, opmerking: Opmerking) {
+    return this.http.post(`${environment.apiUrl}/quotes/${id}`, opmerking.toJSON())
+    .pipe(catchError(this.handleError), map(Opmerking.fromJSON))
     .subscribe();
   }
 
@@ -69,6 +89,8 @@ export class QuoteDataService {
     console.error(err);
     return throwError(errorMessage);
   }
+
+
 
   
 }

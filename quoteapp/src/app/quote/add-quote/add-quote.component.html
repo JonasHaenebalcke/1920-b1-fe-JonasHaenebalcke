@@ -16,6 +16,7 @@
         <mat-datepicker #picker></mat-datepicker>
       </div>
 
+
       <!-- <div>
         <mat-select placeholder="Auteur" aria-label="auteur"
         formControlName="auteur">
@@ -24,6 +25,17 @@
         </mat-option>
       </mat-select>
       </div> -->
+
+      <!-- <div>
+        <mat-label>Auteur</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="auteur" aria-label="auteur" formControlName="auteur">
+          <mat-option *ngFor="let auteur of auteurs$ | async" [value]="auteur">
+            {{ auteur.voornaam}} {{auteur.achternaam}}
+          </mat-option>
+        </mat-select>
+      </div> -->
+
+
 
       <!-- Errors -->
       <mat-error *ngIf="quote.get('inhoud')['errors']?.required && 

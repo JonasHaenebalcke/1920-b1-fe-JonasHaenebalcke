@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -26,7 +27,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -39,7 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ]
 })
 export class MaterialModule { }

@@ -20,7 +20,6 @@ export class QuoteComponent implements OnInit {
 
   upVote(): void {
     this.quote.rating ++;
-    console.log("upvote");
   }
 
   downVote(): void {

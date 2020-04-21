@@ -1,13 +1,15 @@
 import { Opmerking } from './opmerking.model';
 import { Auteur } from './auteur.model';
 
-interface QuoteJson {
+export interface QuoteJson {
     inhoud: string;
     rating?: string;
     date: string;
     opmerkingen?: Opmerking[];
     auteur: Auteur;
     id?: string;
+
+    
 }
 export class Quote {
 
@@ -21,6 +23,19 @@ export class Quote {
         private _id?: number
     ) { }
 
+
+    addOpmerking(opmerking: Opmerking) {
+        this._opmerkingen.push(opmerking);
+    }
+
+    static fromJSON(json: QuoteJson): Quote {
+        const quote = new Quote(json.inhoud, Number(json.rating), new Date(json.date), json.opmerkingen, json.auteur, Number(json.id));
+        return quote;
+    }
+
+    toJSON(): QuoteJson {
+        return { inhoud: this.inhoud, date: this.date.toDateString(),  auteur: this.auteur };
+    }
 
     //#region Getters & Setter
     public get id(): number {
@@ -61,16 +76,5 @@ export class Quote {
     }
     //#endregion
 
-    addOpmerking(opmerking: Opmerking) {
-        this._opmerkingen.push(opmerking);
-    }
-
-    static fromJSON(json: QuoteJson): Quote {
-        const quote = new Quote(json.inhoud, Number(json.rating), new Date(json.date), json.opmerkingen, json.auteur, Number(json.id));
-        return quote;
-    }
-
-    toJSON(): QuoteJson {
-        return { inhoud: this.inhoud, date: this.date.toDateString(),  auteur: this.auteur };
-    }
+    
 }

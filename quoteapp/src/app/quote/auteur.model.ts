@@ -4,10 +4,9 @@ interface AuteurJson {
    voornaam: string,
    achternaam: string,
    quotes: Quote[],
-   geboorteDatum: string,
+//    geboorteDatum: string,
    omschrijving: string,
    id: string,
-   sterfDatum?: string,
    foto?: string
   }
   export class Auteur {
@@ -17,11 +16,10 @@ interface AuteurJson {
         private _voornaam: string,
         private _achternaam: string,
        //Is nog string voor nu omdat ik niet weet hoe objecten werken
-        private _geboorteDatum = new Date(),
+        // private _geboorteDatum = new Date(),
         private _omschrijving: string,
         private _id: number,
         private _quotes? ,
-        private _sterfDatum?: Date,
         private _foto?: string
       ) {}
   
@@ -31,12 +29,6 @@ public get foto(): string {
 }
 public set foto(value: string) {
     this._foto = value;
-}
-public get sterfDatum() {
-    return this._sterfDatum;
-}
-public set sterfDatum(value) {
-    this._sterfDatum = value;
 }
 public get id(): number {
     return this._id;
@@ -50,12 +42,12 @@ public get omschrijving(): string {
 public set omschrijving(value: string) {
     this._omschrijving = value;
 }
-public get geboorteDatum() {
-    return this._geboorteDatum;
-}
-public set geboorteDatum(value) {
-    this._geboorteDatum = value;
-}
+// public get geboorteDatum() {
+//     return this._geboorteDatum;
+// }
+// public set geboorteDatum(value) {
+//     this._geboorteDatum = value;
+// }
 public get quotes() {
     return this._quotes;
 }
@@ -77,10 +69,8 @@ public set voornaam(value: string) {
 //#endregion
 
     static fromJSON(json: AuteurJson): Auteur {
-      const auteur = new Auteur(json.voornaam, json.achternaam, new Date(json.geboorteDatum), json.omschrijving, Number(json.id), json.quotes, new Date(json.sterfDatum), json.foto);
+    //   const auteur = new Auteur(json.voornaam, json.achternaam, new Date(json.geboorteDatum), json.omschrijving, Number(json.id), json.quotes, json.foto);
+    const auteur = new Auteur(json.voornaam, json.achternaam, json.omschrijving, Number(json.id), json.quotes, json.foto);
       return auteur;
     }
-
-   
-  
   }

@@ -33,6 +33,6 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(appRoutes)
   ],
-  exports: [QuoteListComponent, QuoteComponent, AddQuoteComponent]
+  exports: [QuoteListComponent, QuoteComponent, AddQuoteComponent, AddOpmerkingComponent]
 })
 export class QuoteModule { }

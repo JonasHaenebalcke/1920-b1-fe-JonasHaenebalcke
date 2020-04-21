@@ -1,1 +1,11 @@
-<p>add-opmerking works!</p>
+<form [formGroup]="opmerking" (ngSubmit)='onSubmit()'>
+    <div>
+        <label>Inhoud van opmerking</label> <br>
+        <input matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" />
+    </div>
+
+    <button type="submit" mat-raised-button  [disabled]='!opmerking.valid'>
+        Voeg toe
+    </button>
+
+</form>

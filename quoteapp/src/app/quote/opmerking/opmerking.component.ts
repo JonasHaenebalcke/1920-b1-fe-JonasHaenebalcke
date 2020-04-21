@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Opmerking } from '../opmerking.model';
+import { Quote } from '../quote.model';
 
 @Component({
   selector: 'app-opmerking',
@@ -7,10 +8,20 @@ import { Opmerking } from '../opmerking.model';
   styleUrls: ['./opmerking.component.css']
 })
 export class OpmerkingComponent implements OnInit {
-@Input() opmerking : Opmerking;
+@Input() public opmerking : Opmerking;
+@Input()  public quote : Quote;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  upVote(): void {
+    this.opmerking.rating ++;
+    console.log("upvote");
+  }
+
+  downVote(): void {
+    this.opmerking.rating --;
+  }
 }
