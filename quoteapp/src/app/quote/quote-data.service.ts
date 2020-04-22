@@ -74,6 +74,13 @@ export class QuoteDataService {
     .subscribe();
   }
 
+  addNewAuteur(auteur: Auteur) {
+    return this.http    
+    .post(`${environment.apiUrl}/auteurs/`, auteur.toJSON())
+    .pipe(catchError(this.handleError), map(Auteur.fromJSON))
+    .subscribe();
+  }
+
   addNewOpmerking(id: number, opmerking: Opmerking) {
     return this.http.post(`${environment.apiUrl}/quotes/${id}`, opmerking.toJSON())
     .pipe(catchError(this.handleError), map(Opmerking.fromJSON))

@@ -14,9 +14,11 @@
     <mat-card-content>
 
 
-        <h5>Opmerkingen</h5>
-        <div *ngIf="(loggedInUser$ | async)" style="padding: 15px; ">
-            <app-add-opmerking [quote]="quote"></app-add-opmerking>
+        
+        <div style="padding: 15px;">
+            <div *ngIf="(loggedInUser$ | async)">
+                <app-add-opmerking [quote]="quote"></app-add-opmerking>
+            </div>
         </div>
         <div *ngFor="let opmerking of quote.opmerkingen">
             <app-opmerking [opmerking]=opmerking [quote]=quote></app-opmerking>

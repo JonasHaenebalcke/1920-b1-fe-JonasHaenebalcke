@@ -40,7 +40,7 @@ export class Quote {
         console.log(this.auteurId);
         return { inhoud: this.inhoud, date: this.date.toDateString(), auteurId: this.auteurId };
     }
-xx
+
     //#region Getters & Setter
 
     public get auteurId(): number {

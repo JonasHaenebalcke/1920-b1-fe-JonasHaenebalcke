@@ -3,10 +3,10 @@ import { Quote } from './quote.model';
 interface AuteurJson {
    voornaam: string,
    achternaam: string,
-   quotes: Quote[],
 //    geboorteDatum: string,
    omschrijving: string,
-   id: string,
+   quotes?: Quote[],
+   id?: string,
    foto?: string
   }
   export class Auteur {
@@ -18,7 +18,7 @@ interface AuteurJson {
        //Is nog string voor nu omdat ik niet weet hoe objecten werken
         // private _geboorteDatum = new Date(),
         private _omschrijving: string,
-        private _id: number,
+        private _id?: number,
         private _quotes? ,
         private _foto?: string
       ) {}
@@ -73,4 +73,11 @@ public set voornaam(value: string) {
     const auteur = new Auteur(json.voornaam, json.achternaam, json.omschrijving, Number(json.id), json.quotes, json.foto);
       return auteur;
     }
+
+    toJSON(): AuteurJson {
+        return { voornaam: this.voornaam, achternaam: this.achternaam, omschrijving: this.omschrijving }
+    }
+
+
+
   }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuoteDataService } from '../quote-data.service';
 import { Quote } from '../quote.model';
 import { AuthenticationService } from 'src/app/user/authentication.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-quote-detail',
@@ -21,5 +23,10 @@ export class QuoteDetailComponent implements OnInit {
 
     this.route.data.subscribe(item => 
       this.quote = item['quote']);
+
+    
   }
+
+ 
 }
+

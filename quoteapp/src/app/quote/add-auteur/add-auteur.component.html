@@ -1,1 +1,53 @@
-<p>add-auteur works!</p>
+<mat-card>
+    <mat-card-title>Voeg auteur toe</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="auteur" (ngSubmit)='onSubmit()'>
+
+            <!-- Inputs -->
+            <div>
+                <label>Voornaam</label> <br>
+                <input matInput aria-label="voornaam" placeholder="voornaam" type="text" formControlName="voornaam" />
+            </div>
+
+            <div>
+                <label>Achternaam</label> <br>
+                <input matInput aria-label="achternaam" placeholder="achternaam" type="text"
+                    formControlName="achternaam" />
+            </div>
+
+            <div>
+                <label>Omschrijving</label> <br>
+                <input matInput aria-label="omschrijving" placeholder="inhoud" type="omschrijving"
+                    formControlName="omschrijving" />
+            </div>
+
+
+
+
+            <!-- Errors -->
+            <mat-error *ngIf="auteur.get('voornaam')['errors']?.required && 
+            auteur.get('voornaam').touched">
+                Inhoud van auteur is niet geldig
+                <br>
+            </mat-error>
+
+            <mat-error *ngIf="auteur.get('achternaam')['errors']?.required && 
+            auteur.get('achternaam').touched">
+                Inhoud van auteur is niet geldig
+                <br>
+            </mat-error>
+
+            <mat-error *ngIf="auteur.get('omschrijving')['errors']?.required && 
+            auteur.get('omschrijving').touched">
+                Inhoud van auteur is niet geldig
+                <br>
+            </mat-error>
+
+
+            <!-- button -->
+            <button type="submit" mat-raised-button [disabled]='!auteur.valid'>
+                Voeg toe
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>
