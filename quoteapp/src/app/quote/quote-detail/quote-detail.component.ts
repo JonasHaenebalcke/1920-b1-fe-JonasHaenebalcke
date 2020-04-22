@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuoteDataService } from '../quote-data.service';
 import { Quote } from '../quote.model';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 
 @Component({
   selector: 'app-quote-detail',
@@ -10,8 +11,9 @@ import { Quote } from '../quote.model';
 })
 export class QuoteDetailComponent implements OnInit {
   public quote: Quote;
+  loggedInUser$ = this._authenticationService.user$;
 
-  constructor(private route: ActivatedRoute, private quoteDataService: QuoteDataService) { }
+  constructor(private _authenticationService: AuthenticationService, private route: ActivatedRoute, private quoteDataService: QuoteDataService) { }
 
   ngOnInit(): void {
     // const id = this.route.snapshot.paramMap.get('id');

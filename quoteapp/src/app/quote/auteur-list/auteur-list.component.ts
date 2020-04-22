@@ -3,6 +3,7 @@ import { Auteur } from '../auteur.model';
 import { Observable, EMPTY } from 'rxjs';
 import { QuoteDataService } from '../quote-data.service';
 import { catchError } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 
 @Component({
   selector: 'app-auteur-list',
@@ -12,8 +13,9 @@ import { catchError } from 'rxjs/operators';
 export class AuteurListComponent implements OnInit {
   private _fetchAuteurs$: Observable<Auteur[]>
   public errorMessage: string = '';
+  loggedInUser$ = this._authenticationService.user$;
 
-  constructor(private _quoteDataService: QuoteDataService) {
+  constructor(private _authenticationService: AuthenticationService, private _quoteDataService: QuoteDataService) {
   }
 
   get auteurs$(): Observable<Auteur[]> {

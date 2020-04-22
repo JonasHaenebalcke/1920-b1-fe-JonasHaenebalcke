@@ -3,6 +3,7 @@ import { Quote } from '../quote.model';
 import { QuoteDataService } from '../quote-data.service';
 import { Observable, EMPTY } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 
 @Component({
   selector: 'app-quote-list',
@@ -12,8 +13,9 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 export class QuoteListComponent implements OnInit {
   private _fetchQuotes$: Observable<Quote[]>
   public errorMessage: string = '';
+  loggedInUser$ = this._authenticationService.user$;
 
-  constructor(private _quoteDataService: QuoteDataService) { }
+  constructor(private _authenticationService: AuthenticationService, private _quoteDataService: QuoteDataService) { }
 
   ngOnInit(): void {
     this._fetchQuotes$ = this._quoteDataService.quotes$.pipe(
@@ -27,6 +29,8 @@ export class QuoteListComponent implements OnInit {
   get quotes$(): Observable<Quote[]>{
    return this._fetchQuotes$;
   }
+
+
 
   // addNewQuote(quote: Quote){
   //   this._quoteDataService.addNewQuote(quote);

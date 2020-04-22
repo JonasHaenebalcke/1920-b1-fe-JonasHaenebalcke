@@ -1,9 +1,12 @@
 <div *ngIf="(auteurs$ | async) as auteurs; else loadingOrError">
     <div fxLayout="column" fxLayoutGap="2%">
-        <app-add-auteur></app-add-auteur>
+        <div *ngIf="(loggedInUser$ | async)">
+            <app-add-auteur></app-add-auteur>
+        </div>
         <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start">
 
-            <div class="auteur" *ngFor="let localAuteur of auteurs$ | async" fxFlex="0 0 calc(100%-0.5%)" fxFlex.xs="100%">
+            <div class="auteur" *ngFor="let localAuteur of auteurs$ | async" fxFlex="0 0 calc(100%-0.5%)"
+                fxFlex.xs="100%">
 
                 <app-auteur [auteur]="localAuteur"></app-auteur>
 
@@ -20,4 +23,4 @@
 
 <ng-template #loading>
     <mat-spinner></mat-spinner>
-</ng-template> 
+</ng-template>
