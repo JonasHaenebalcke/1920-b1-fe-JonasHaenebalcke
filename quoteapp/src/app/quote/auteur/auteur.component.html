@@ -1,12 +1,19 @@
-<hr>
-<h3>{{ auteur.voornaam }} {{ auteur.achternaam }}</h3>
+<mat-card style="margin: 5px;">
+    <mat-card-header style="font-weight: bold;">
+        {{ auteur.voornaam }} {{ auteur.achternaam }}
+    </mat-card-header>
+    <br>
+    <mat-card-header> Quotes</mat-card-header>
 
-<h5>Quotes</h5>
-<ul>
-    <li *ngFor="let quote of auteur.quotes">
-        {{quote.inhoud}}
-    </li>
-</ul>
-
-<h5>Omschrijving</h5>
-<p>{{auteur.omschrijving}}</p>
+    <mat-card-content>   
+  
+        <div *ngFor="let quote of auteur.quotes" style="text-indent: 50px;">
+            {{quote.inhoud}} <br>
+        </div>
+        
+        <br>
+        <mat-card-header> omschrijving</mat-card-header>
+    
+    <p style="text-indent: 50px;">{{auteur.omschrijving}}</p>
+</mat-card-content>
+</mat-card>

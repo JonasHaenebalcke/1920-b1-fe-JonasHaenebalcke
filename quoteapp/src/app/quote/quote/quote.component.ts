@@ -19,6 +19,7 @@ export class QuoteComponent implements OnInit {
   }
 
   upVote(): void {
+    console.log(this.quote.inhoud)
     this.quote.rating ++;
   }
 

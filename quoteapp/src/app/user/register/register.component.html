@@ -89,6 +89,11 @@
           Register
         </button>
       </mat-card-actions>
+
+      <mat-card style="color: red;" *ngIf="errorMessage" data-cy="appError">
+        Er ging iets mis bij het registeren.<br>  
+        Gebruikersnaam mag geen speciale tekens bevatten
+    </mat-card>
     </form>
   </mat-card>
 </div>

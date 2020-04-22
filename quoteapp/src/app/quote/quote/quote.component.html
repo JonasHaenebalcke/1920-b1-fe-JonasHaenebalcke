@@ -1,5 +1,5 @@
-<mat-card>
-    <mat-card-header>
+<mat-card style="overflow-y: auto;">
+    <mat-card-header class="left">
 
         <mat-card-title>
             {{quote.inhoud}}
@@ -11,15 +11,20 @@
         </mat-card-subtitle>
 
     </mat-card-header>
-    <mat-card-content>
 
-
+    <!-- <mat-card-content class="left">
         <h5>Opmerkingen</h5>
         <ul>
             <li *ngFor="let opmerking of quote.opmerkingen">
+                
                 {{opmerking.inhoud}}
             </li>
-        </ul>
+        </ul>   
+    </mat-card-content> -->
+    <mat-card-content class="right">
+
+
+    
         <br>
 
         <div  class="commentIconContainer">

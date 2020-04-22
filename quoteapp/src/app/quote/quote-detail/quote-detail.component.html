@@ -15,7 +15,9 @@
 
 
         <h5>Opmerkingen</h5>
-       
+        <div style="padding: 15px;">
+            <app-add-opmerking [quote]="quote"></app-add-opmerking>
+        </div>
             <div *ngFor="let opmerking of quote.opmerkingen">
              <app-opmerking [opmerking]=opmerking [quote]=quote></app-opmerking>
             </div>

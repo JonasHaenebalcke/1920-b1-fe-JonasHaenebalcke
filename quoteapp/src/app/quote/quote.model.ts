@@ -31,7 +31,7 @@ export class Quote {
     }
 
     static fromJSON(json: QuoteJson): Quote {
-        const quote = new Quote(json.inhoud, new Date(json.date), null, null, json.auteur, Number(json.rating), Number(json.id));
+        const quote = new Quote(json.inhoud, new Date(json.date), json.opmerkingen, json.auteur.id, json.auteur, Number(json.rating), Number(json.id));
         return quote;
     }
 

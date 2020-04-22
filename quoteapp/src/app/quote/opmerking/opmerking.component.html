@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
-    <mat-card style="width: 40%;">
+    <mat-card style="width: 70%;">
         <mat-card>
-            <mat-card-header>
+            <mat-card-header class="left">
 
                 <mat-card-title>
                     {{opmerking.inhoud}}
@@ -13,7 +13,7 @@
                 </mat-card-subtitle>
 
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="right">
                 <div>
                     <button (click)="upVote()" mat-raised-button>
                         <mat-icon>arrow_upward</mat-icon>
@@ -29,9 +29,7 @@
                         <mat-icon>arrow_downward</mat-icon>
                     </button>
 
-                    <div style="padding: 15px;">
-                        <app-add-opmerking [quote]="quote"></app-add-opmerking>
-                    </div>
+                    
                 </div>
             </mat-card-content>
         </mat-card>
