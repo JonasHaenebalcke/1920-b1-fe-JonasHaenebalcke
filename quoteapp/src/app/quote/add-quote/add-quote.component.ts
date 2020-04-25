@@ -59,7 +59,7 @@ export class AddQuoteComponent implements OnInit {
 
     this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
       .subscribe(auteur => this._quoteDataService
-        .addNewQuote(new Quote(this.quote.value.inhoud, this.quote.value.datum, null, auteur.id, null, null, null)));
+        .addNewQuote(new Quote(this.quote.value.inhoud, this.quote.value.datum, null, auteur.id, null, null/*, null*/)));
 
 
 

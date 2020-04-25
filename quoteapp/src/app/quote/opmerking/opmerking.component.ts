@@ -16,12 +16,12 @@ export class OpmerkingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upVote(): void {
-    this.opmerking.rating ++;
-    console.log("upvote");
-  }
+  // upVote(): void {
+  //   this.opmerking.rating ++;
+  //   console.log("upvote");
+  // }
 
-  downVote(): void {
-    this.opmerking.rating --;
-  }
+  // downVote(): void {
+  //   this.opmerking.rating --;
+  // }
 }
