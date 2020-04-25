@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private router: Router,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.user = this.fb.group({
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    
     this.authService
       .login(this.user.value.gebruikersnaam, this.user.value.wachtwoord)
       .subscribe(
@@ -52,5 +53,13 @@ export class LoginComponent implements OnInit {
           }
         }
       );
+  }
+  getErrorMessage(errors: any) {
+    if (!errors) {
+      return null;
+    }
+    if (errors.required) {
+      return 'Dit is een verplicht veld';
+    }
   }
 }

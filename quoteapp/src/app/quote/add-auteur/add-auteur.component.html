@@ -4,22 +4,24 @@
         <form [formGroup]="auteur" (ngSubmit)='onSubmit()'>
 
             <!-- Inputs -->
-            <div>
-                <label>Voornaam</label> <br>
+            <mat-form-field style="width: 250px;">
+                <mat-label>Voornaam</mat-label> <br>
                 <input matInput aria-label="voornaam" placeholder="voornaam" type="text" formControlName="voornaam" />
-            </div>
+            </mat-form-field> <br>
 
-            <div>
-                <label>Achternaam</label> <br>
+            <mat-form-field style="width: 250px;">
+                <mat-label>Achternaam</mat-label> <br>
                 <input matInput aria-label="achternaam" placeholder="achternaam" type="text"
                     formControlName="achternaam" />
-            </div>
+            </mat-form-field>
+            <br>
 
-            <div>
-                <label>Omschrijving</label> <br>
+            <mat-form-field style="width: 250px;">
+                <mat-label>Omschrijving</mat-label> <br>
                 <input matInput aria-label="omschrijving" placeholder="inhoud" type="omschrijving"
                     formControlName="omschrijving" />
-            </div>
+            </mat-form-field>
+            <br>
 
 
 
@@ -27,19 +29,19 @@
             <!-- Errors -->
             <mat-error *ngIf="auteur.get('voornaam')['errors']?.required && 
             auteur.get('voornaam').touched">
-                Inhoud van auteur is niet geldig
+                Inhoud van auteur is verplicht in te vullen!
                 <br>
             </mat-error>
 
             <mat-error *ngIf="auteur.get('achternaam')['errors']?.required && 
             auteur.get('achternaam').touched">
-                Inhoud van auteur is niet geldig
+                Inhoud van auteur is verplicht in te vullen!
                 <br>
             </mat-error>
 
             <mat-error *ngIf="auteur.get('omschrijving')['errors']?.required && 
             auteur.get('omschrijving').touched">
-                Inhoud van auteur is niet geldig
+                Inhoud van auteur is verplicht in te vullen!
                 <br>
             </mat-error>
 

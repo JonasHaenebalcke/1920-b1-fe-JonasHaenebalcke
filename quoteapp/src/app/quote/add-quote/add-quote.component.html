@@ -4,18 +4,24 @@
     <form [formGroup]="quote" (ngSubmit)='onSubmit()'>
 
       <!-- Inputs -->
-      <div>
-        <label>Inhoud van quote</label> <br>
-        <input matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" />
-      </div>
 
-      <div>
-        <label>Datum</label> <br>
-        <input matInput [matDatepicker]="picker" placeholder="Kies datum" aria-label="datum" formControlName="datum">
+      <mat-form-field style="width: 500px;">
+        <mat-label>Inhoud van quote</mat-label> <br>
+        <!-- <input matInput matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" /> -->
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5" matInput matInput aria-label="inhoud" placeholder="inhoud" type="text"
+          formControlName="inhoud"></textarea>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field style="width: 250px;">
+        <mat-label>Datum</mat-label> <br>
+        <input matInput [max]="maxDate" name="auteur" matInput [matDatepicker]="picker" placeholder="Kies datum" aria-label="datum"
+          formControlName="datum" readonly>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </div>
-
+      </mat-form-field>
+      <br>
 
       <!-- <div>
         <mat-select placeholder="Auteur" aria-label="auteur"
@@ -26,32 +32,40 @@
       </mat-select>
       </div> -->
 
-      <div>
+      <mat-form-field style="width: 250px;">
         <mat-label>Auteur</mat-label>
         <mat-select [(ngModel)]="selectedValue" name="auteur" aria-label="auteur" formControlName="auteur">
           <mat-option *ngFor="let auteur of auteurs$ | async" [value]="auteur">
             {{ auteur.voornaam}} {{auteur.achternaam}}
           </mat-option>
         </mat-select>
-      </div>
+      </mat-form-field>
+      <br>
 
 
 
       <!-- Errors -->
       <mat-error *ngIf="quote.get('inhoud')['errors']?.required && 
             quote.get('inhoud').touched">
-        Inhoud van quote is niet geldig
+        Inhoud van quote is verplicht in te vullen!
         <br>
       </mat-error>
 
       <mat-error *ngIf="quote.get('datum')['errors']?.required && 
       quote.get('datum').touched">
-        Datum is niet geldig
+        Datum is verplicht in te vullen!
         <br>
       </mat-error>
 
+      <mat-error *ngIf="quote.get('auteur')['errors']?.required && 
+      quote.get('auteur').touched">
+        Auteur is verplicht in te vullen!
+        <br>
+      </mat-error>
+
+
       <!-- button -->
-      <button type="submit" mat-raised-button [disabled]='!quote.valid'>
+      <button type="submit" mat-raised-button [disabled]='!quote.valid' >
         Voeg toe
       </button>
     </form>

@@ -1,13 +1,14 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
-  <mat-card>
+  <mat-card  >
     <form [formGroup]="user" (ngSubmit)="onSubmit()">
       <mat-card-header>
-        <mat-card-title>Register</mat-card-title>
+        <mat-card-title>Registreer</mat-card-title>
       </mat-card-header>
       <mat-card-content fxLayout="column">
         <span fxLayout="row" fxLayoutGap="2%">
-          <div class="spacing">
-            <label>Voornaam</label><br>
+
+          <mat-form-field class="field">
+            <mat-label>Voornaam</mat-label> <br>
             <input matInput aria-label="voornaam" data-cy="register-voornaam" formControlName="voornaam" />
             <mat-error *ngIf="
                   user.get('voornaam').errors && user.get('voornaam').touched
@@ -15,9 +16,11 @@
               <br>
               {{ getErrorMessage(user.get('voornaam').errors) }}
             </mat-error>
-          </div>
-          <div class="spacing">
-            <label>Achternaam</label><br>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="field">
+            <mat-label>Achternaam</mat-label> <br>
             <input matInput aria-label="achternaam" data-cy="register-achternaam" formControlName="achternaam" />
             <mat-error *ngIf="
                   user.get('achternaam').errors && user.get('achternaam').touched
@@ -25,20 +28,23 @@
               <br>
               {{ getErrorMessage(user.get('achternaam').errors) }}
             </mat-error>
-          </div>
+          </mat-form-field>
+          <br>
+
+
         </span>
-        <div class="spacing">
-          <label>Gebruikersnaam</label><br>
+        <mat-form-field class="field">
+          <mat-label>Gebruikersnaam</mat-label> <br>
           <input matInput aria-label="gebruikersnaam" data-cy="register-gebruikersnaam"
             formControlName="gebruikersnaam" />
           <mat-error *ngIf="user.get('gebruikersnaam').errors && user.get('gebruikersnaam').touched">
             <br>
             {{ getErrorMessage(user.get('gebruikersnaam').errors) }}
           </mat-error>
-        </div>
+        </mat-form-field>
         <span fxLayout="column" formGroupName="passwordGroup">
-          <div class="spacing">
-            <label>Wachtwoord</label><br>
+          <mat-form-field class="field">
+            <mat-label>Wachtwoord</mat-label> <br>
             <input type="password" matInput aria-label="wachtwoord" data-cy="register-wachtwoord"
               formControlName="wachtwoord" />
             <mat-error *ngIf="
@@ -52,9 +58,9 @@
                   )
                 }}
             </mat-error>
-          </div>
-          <div class="spacing">
-            <label>Bevestig wachtwoord</label> <br>
+          </mat-form-field>
+          <mat-form-field class="field">
+            <mat-label>Bevestig wachtwoord</mat-label> <br>
             <input type="password" matInput aria-label="bevestigWachtwoord" data-cy="register-bevestigWachtwoord"
               formControlName="bevestigWachtwoord" />
             <mat-error *ngIf="
@@ -68,13 +74,13 @@
                   )
                 }}
             </mat-error>
-          </div>
+          </mat-form-field>
           <mat-error *ngIf="
                 user.get('passwordGroup').errors &&
                 user.get('passwordGroup').get('bevestigWachtwoord').touched &&
                 user.get('passwordGroup').get('wachtwoord').touched
               ">
-              <br>
+            <br>
             {{ getErrorMessage(user.get('passwordGroup').errors) }}
           </mat-error>
         </span>
@@ -91,9 +97,10 @@
       </mat-card-actions>
 
       <mat-card style="color: red;" *ngIf="errorMessage" data-cy="appError">
-        Er ging iets mis bij het registeren.<br>  
-        Gebruikersnaam mag geen speciale tekens bevatten
-    </mat-card>
+        Er ging iets mis bij het registeren.<br>
+        Alle velden zijn verplicht en gebruikersnaam mag geen speciale tekens bevatten
+       
+      </mat-card>
     </form>
   </mat-card>
 </div>

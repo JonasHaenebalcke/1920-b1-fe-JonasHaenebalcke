@@ -19,7 +19,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>quoteapp</span>
+      <span>Quote App</span>
       <span class="fill-space" style="width: 100%;"></span>
       <span *ngIf="loggedInUser$ | async as user; else loginTemplate">
         {{ user }}

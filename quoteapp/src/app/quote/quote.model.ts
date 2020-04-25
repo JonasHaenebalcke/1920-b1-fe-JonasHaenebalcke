@@ -37,7 +37,8 @@ export class Quote {
 
     toJSON(): QuoteJson {
         console.log("TO JSON")
-        console.log(this.auteurId);
+        console.log(this.inhoud);
+        console.log("END TO JSON")
         return { inhoud: this.inhoud, date: this.date.toDateString(), auteurId: this.auteurId };
     }
 

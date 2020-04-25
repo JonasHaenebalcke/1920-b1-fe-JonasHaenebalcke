@@ -11,6 +11,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -28,7 +29,8 @@ import {FormsModule} from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ],
   exports: [
     CommonModule,
@@ -42,7 +44,8 @@ import {FormsModule} from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }

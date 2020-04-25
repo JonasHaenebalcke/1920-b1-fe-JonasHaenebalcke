@@ -1,11 +1,20 @@
 <form [formGroup]="opmerking" (ngSubmit)='onSubmit()'>
-    <div>
-        <label>Inhoud van opmerking</label> <br>
-        <input matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" />
-    </div>
+    <mat-form-field style="width: 300px;">
+        <mat-label>Plaats een opmerking</mat-label> <br>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5" matInput matInput aria-label="inhoud" placeholder="inhoud" type="text"
+            formControlName="inhoud"></textarea>
+    </mat-form-field>
 
-    <button type="submit" mat-raised-button  [disabled]='!opmerking.valid'>
+    <mat-error *ngIf="opmerking.get('inhoud')['errors']?.required && 
+    opmerking.get('inhoud').touched">
+        Inhoud is verplicht in te vullen!
+        <br>
+    </mat-error>
+    <br>
+    <button type="submit" mat-raised-button [disabled]='!opmerking.valid'>
         Voeg toe
     </button>
+
 
 </form>

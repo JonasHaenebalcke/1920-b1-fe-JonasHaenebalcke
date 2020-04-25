@@ -3,17 +3,19 @@
         {{ auteur.voornaam }} {{ auteur.achternaam }}
     </mat-card-header>
     <br>
-    <mat-card-header> Quotes</mat-card-header>
+    <mat-card-subtitle> Quotes</mat-card-subtitle>
+    <mat-card-content>
+        <ul>
+            <div *ngFor="let quote of auteur.quotes">
+                {{quote.inhoud}}
+            </div>
+        </ul>
+    </mat-card-content>
 
-    <mat-card-content>   
-  
-        <div *ngFor="let quote of auteur.quotes" style="text-indent: 50px;">
-            {{quote.inhoud}} <br>
-        </div>
-        
-        <br>
-        <mat-card-header> omschrijving</mat-card-header>
-    
-    <p style="text-indent: 50px;">{{auteur.omschrijving}}</p>
-</mat-card-content>
+    <mat-card-subtitle> omschrijving</mat-card-subtitle>
+    <mat-card-content>
+        <ul>
+            {{auteur.omschrijving}}
+        </ul>
+    </mat-card-content>
 </mat-card>

@@ -21,6 +21,7 @@ export class AddQuoteComponent implements OnInit {
   public errorMessage: string = '';
   public selectedValue: string;
   public auteur: Auteur;
+  public maxDate =  new Date(new Date().setDate(new Date().getDate()-1))
 
   constructor(private fb: FormBuilder, private _quoteDataService: QuoteDataService) { }
 
@@ -35,7 +36,7 @@ export class AddQuoteComponent implements OnInit {
     this.quote = this.fb.group({
       inhoud: ['', Validators.required],
       datum: [new Date().toDateString, Validators.required],
-      auteur: ['']
+      auteur: ['', Validators.required]
     });
 
   }
@@ -46,37 +47,18 @@ export class AddQuoteComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.quote.value.inhoud + this.quote.value.datum)
+    console.log(this.quote.value.inhoud)
+    this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
+      .subscribe(auteur => this._quoteDataService
+        .addNewQuote(new Quote(this.quote.value.inhoud, this.quote.value.date, null, auteur.id, null, null)));
+        // this.ngOnInit();
+
+       
+  }
+      // console.log(this.quote.value.inhoud + this.quote.value.datum)
     // this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
     // .subscribe(auteur => console.log(auteur.voornaam));
 
-
-
-
-
-
-
-
-    this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)
-      .subscribe(auteur => this._quoteDataService
-        .addNewQuote(new Quote(this.quote.value.inhoud, this.quote.value.datum, null, auteur.id, null, null/*, null*/)));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
   // this._quoteDataService.addNewQuote(new Quote(this.quote.value.inhoud, 0, this.quote.value.datum, null, new Auteur("dat", "boi", "riding a bike", null, null, null), null))
 
   // this._quoteDataService.getauteur$(`${this.quote.value.auteur.voornaam} ${this.quote.value.auteur.achternaam}`)

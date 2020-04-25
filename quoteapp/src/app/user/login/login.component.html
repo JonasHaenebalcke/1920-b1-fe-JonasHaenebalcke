@@ -6,22 +6,32 @@
             </mat-card-header>
 
             <mat-card-content fxLayout="column">
-
-                <div class="spacing">
-                    <label>Gebruikersnaam</label><br>
+                <mat-form-field style="width: 250px;">
+                    <mat-label>Gebruikersnaam</mat-label> <br>
                     <input matInput placeholder="gebruikersnaam" aria-label="gebruikersnaam"
                         data-cy="login-gebruikersnaam" formControlName="gebruikersnaam" />
+                    <mat-error *ngIf="user.get('gebruikersnaam').errors && user.get('gebruikersnaam').touched">
+                        <br>
+                        {{ getErrorMessage(user.get('gebruikersnaam').errors) }}
+                    </mat-error>
+                </mat-form-field>
+                <br>
 
-                </div>
-                    
-                <div class="spacing">
-                    <label>Wachtwoord</label><br>
+                <mat-form-field style="width: 250px;">
+                    <mat-label>Wachtwoord</mat-label> <br>
                     <input type="password" matInput placeholder="wachtwoord" aria-label="wachtwoord"
                         data-cy="login-wachtwoord" formControlName="wachtwoord" />
-                </div>
+                    <mat-error *ngIf="user.get('wachtwoord').errors && user.get('wachtwoord').touched">
+                        <br>
+                        {{ getErrorMessage(user.get('wachtwoord').errors) }}
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
             </mat-card-content>
+
             <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
-                <a [routerLink]="['/register']" >Registreer</a>
+                <a [routerLink]="['/register']">Registreer</a>
 
                 <button mat-raised-button type="submit" color="primary" data-cy="login-button">
                     Login
@@ -29,7 +39,7 @@
             </mat-card-actions>
         </form>
         <mat-card style="color: red;" *ngIf="errorMessage" data-cy="appError">
-            Er ging iets mis bij het inloggen.<br>  
+            Er ging iets mis bij het inloggen.<br>
             Controleer gebruikersnaam en wachtwoord
         </mat-card>
     </mat-card>

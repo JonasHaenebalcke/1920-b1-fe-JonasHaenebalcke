@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, AbstractControl, ValidationErrors, ValidatorFn, PatternValidator } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
@@ -9,8 +9,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 function comparePasswords(control: AbstractControl): ValidationErrors {
   const wachtwoord = control.get('wachtwoord');
   const bevestigWachtwoord = control.get('bevestigWachtwoord');
-  console.log(wachtwoord.value);
-  console.log(bevestigWachtwoord.value);
   return wachtwoord.value === bevestigWachtwoord.value ? null
     : { 'passwordsDiffer': true };
 }
@@ -29,6 +27,19 @@ function serverSideValidateUsername(
     );
   };
 }
+// function patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
+//   return (control: AbstractControl): { [key: string]: any } => {
+//     if (!control.value) {
+//       return null;
+//     }
+
+//     // test the value of the control against the regexp supplied
+//     const valid = regex.test(control.value);
+//     // if true, return no error (no error), else return error passed in the second parameter
+//     return valid ? null : error;
+//   };
+// }
+
 
 @Component({
   selector: 'app-register',
@@ -50,6 +61,8 @@ export class RegisterComponent implements OnInit {
       achternaam: ['', Validators.required],
       gebruikersnaam: ['', [Validators.required,],
         serverSideValidateUsername(this.authService.checkUserNameAvailability)
+        // patternValidator(/[^\s]/, { heeftSpatie: true })
+
       ],
       passwordGroup: this.fb.group({
         wachtwoord: ['', [Validators.required, Validators.minLength(6)]],
@@ -69,11 +82,14 @@ export class RegisterComponent implements OnInit {
       return `Dit veld heeft ${errors.minlength.requiredLength} tekens (waren er ${errors.minlength.actualLength})`;
     }
     else if (errors.passwordsDiffer) {
-      return `Wachtwoord moet overeenkomen`;
+      return `Wachtwoorden moeten overeenkomen`;
     }
     else if (errors.userAlreadyExists) {
-      return `user already exists`;
+      return `Deze gebruikersnaam is al in gebruik`;
     }
+    // else if (errors.heeftSpatie){
+    //   return `Gebruikersnaam mag geen spatie bevatten`
+    // }
   }
 
   onSubmit() {
@@ -81,7 +97,7 @@ export class RegisterComponent implements OnInit {
       .register(
         this.user.value.voornaam,
         this.user.value.achternaam,
-        this.user.value.gebruikersnaam,
+        `${this.user.value.gebruikersnaam}`,
         this.user.value.passwordGroup.wachtwoord
       )
       .subscribe(
