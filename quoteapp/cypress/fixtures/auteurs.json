@@ -1,0 +1,59 @@
+[
+    {
+        "voornaam": "Axel",
+        "achternaam": "Beuselinck",
+        "quotes": [
+            {
+                "inhoud": "Omg, that's like the Netherlands and Dutch language combined!",
+                "date": "2019-01-25T00:00:00",
+                "opmerkingen": null,
+                "id": 3
+            },
+            {
+                "inhoud": "How many IQ cells do you have?",
+                "date": "2019-02-19T00:00:00",
+                "opmerkingen": null,
+                "id": 4
+            },
+            {
+                "inhoud": "Ik trigger weinig mensen",
+                "date": "2019-09-10T00:00:00",
+                "opmerkingen": null,
+                "id": 5
+            }
+        ],
+        "omschrijving": "Een feestbeest dat heel gemotiveerd is om te werken, maar niet voor school. Dit zorgt natuurlijk voor een individu dat heel plezante dingen kan zeggen.",
+        "foto": null,
+        "id": 1
+    },
+    {
+        "voornaam": "Jonas",
+        "achternaam": "Haenebalcke",
+        "quotes": [
+            {
+                "inhoud": "Ik ben uw animal king",
+                "date": "2019-01-11T00:00:00",
+                "opmerkingen": null,
+                "id": 2
+            }
+        ],
+        "omschrijving": "Een ijverige student die af en toe wel iets grappigs zegt.",
+        "foto": null,
+        "id": 2
+    },
+    {
+        "voornaam": "Wout",
+        "achternaam": "Van Kets",
+        "quotes": [
+            {
+                "inhoud": "Do you even intellect?",
+                "date": "2019-01-25T00:00:00",
+                "opmerkingen": null,
+                "id": 1
+            }
+        ],
+        "omschrijving": "Een lieve jongen, maar met heel flauwe humor.",
+        "foto": null,
+        "id": 3
+    }
+]

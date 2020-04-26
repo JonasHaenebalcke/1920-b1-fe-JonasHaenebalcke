@@ -1,0 +1,158 @@
+[
+    {
+        "inhoud": "Ik ben uw animal king",
+        "date": "2019-01-11T00:00:00",
+        "opmerkingen": [
+            {
+                "inhoud": "That's the spirit",
+                "date": "2020-03-05T20:20:20",
+                "id": 1,
+                "auteur": "Random Gebruiker"
+            },
+            {
+                "inhoud": "Haha",
+                "date": "2020-03-10T14:10:00",
+                "id": 2,
+                "auteur": "Random Gebruiker"
+            },
+            {
+                "inhoud": "Nice one Jonas",
+                "date": "2020-03-15T15:40:00",
+                "id": 4,
+                "auteur": "Random Gebruiker"
+            }
+        ],
+        "auteur": {
+            "voornaam": "Jonas",
+            "achternaam": "Haenebalcke",
+            "quotes": [],
+            "omschrijving": "Een ijverige student die af en toe wel iets grappigs zegt.",
+            "foto": null,
+            "id": 2
+        },
+        "id": 2
+    },
+    {
+        "inhoud": "Do you even intellect?",
+        "date": "2019-01-25T00:00:00",
+        "opmerkingen": [
+            {
+                "inhoud": "Nice one Wout",
+                "date": "2020-03-10T18:20:00",
+                "id": 3,
+                "auteur": "Random Gebruiker"
+            }
+        ],
+        "auteur": {
+            "voornaam": "Wout",
+            "achternaam": "Van Kets",
+            "quotes": [],
+            "omschrijving": "Een lieve jongen, maar met heel flauwe humor.",
+            "foto": null,
+            "id": 3
+        },
+        "id": 1
+    },
+    {
+        "inhoud": "Omg, that's like the Netherlands and Dutch language combined!",
+        "date": "2019-01-25T00:00:00",
+        "opmerkingen": [
+            {
+                "inhoud": "Nice one Axel",
+                "date": "2020-03-20T12:30:00",
+                "id": 5,
+                "auteur": "Random Gebruiker"
+            }
+        ],
+        "auteur": {
+            "voornaam": "Axel",
+            "achternaam": "Beuselinck",
+            "quotes": [
+                {
+                    "inhoud": "How many IQ cells do you have?",
+                    "date": "2019-02-19T00:00:00",
+                    "opmerkingen": [],
+                    "id": 4
+                },
+                {
+                    "inhoud": "Ik trigger weinig mensen",
+                    "date": "2019-09-10T00:00:00",
+                    "opmerkingen": [],
+                    "id": 5
+                }
+            ],
+            "omschrijving": "Een feestbeest dat heel gemotiveerd is om te werken, maar niet voor school. Dit zorgt natuurlijk voor een individu dat heel plezante dingen kan zeggen.",
+            "foto": null,
+            "id": 1
+        },
+        "id": 3
+    },
+    {
+        "inhoud": "How many IQ cells do you have?",
+        "date": "2019-02-19T00:00:00",
+        "opmerkingen": [],
+        "auteur": {
+            "voornaam": "Axel",
+            "achternaam": "Beuselinck",
+            "quotes": [
+                {
+                    "inhoud": "Omg, that's like the Netherlands and Dutch language combined!",
+                    "date": "2019-01-25T00:00:00",
+                    "opmerkingen": [
+                        {
+                            "inhoud": "Nice one Axel",
+                            "date": "2020-03-20T12:30:00",
+                            "id": 5,
+                            "auteur": "Random Gebruiker"
+                        }
+                    ],
+                    "id": 3
+                },
+                {
+                    "inhoud": "Ik trigger weinig mensen",
+                    "date": "2019-09-10T00:00:00",
+                    "opmerkingen": [],
+                    "id": 5
+                }
+            ],
+            "omschrijving": "Een feestbeest dat heel gemotiveerd is om te werken, maar niet voor school. Dit zorgt natuurlijk voor een individu dat heel plezante dingen kan zeggen.",
+            "foto": null,
+            "id": 1
+        },
+        "id": 4
+    },
+    {
+        "inhoud": "Ik trigger weinig mensen",
+        "date": "2019-09-10T00:00:00",
+        "opmerkingen": [],
+        "auteur": {
+            "voornaam": "Axel",
+            "achternaam": "Beuselinck",
+            "quotes": [
+                {
+                    "inhoud": "Omg, that's like the Netherlands and Dutch language combined!",
+                    "date": "2019-01-25T00:00:00",
+                    "opmerkingen": [
+                        {
+                            "inhoud": "Nice one Axel",
+                            "date": "2020-03-20T12:30:00",
+                            "id": 5,
+                            "auteur": "Random Gebruiker"
+                        }
+                    ],
+                    "id": 3
+                },
+                {
+                    "inhoud": "How many IQ cells do you have?",
+                    "date": "2019-02-19T00:00:00",
+                    "opmerkingen": [],
+                    "id": 4
+                }
+            ],
+            "omschrijving": "Een feestbeest dat heel gemotiveerd is om te werken, maar niet voor school. Dit zorgt natuurlijk voor een individu dat heel plezante dingen kan zeggen.",
+            "foto": null,
+            "id": 1
+        },
+        "id": 5
+    }
+]

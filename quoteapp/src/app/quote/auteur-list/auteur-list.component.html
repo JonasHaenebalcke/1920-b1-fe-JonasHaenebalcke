@@ -8,7 +8,7 @@
             <div class="auteur" *ngFor="let localAuteur of auteurs$ | async" fxFlex="0 0 calc(100%-0.5%)"
                 fxFlex.xs="100%">
 
-                <app-auteur [auteur]="localAuteur"></app-auteur>
+                <app-auteur data-cy="auteurCard" [auteur]="localAuteur"></app-auteur>
 
             </div>
         </div>
@@ -16,7 +16,7 @@
 </div>
 
 <ng-template #loadingOrError>
-    <div class="error" *ngIf="errorMessage; else loading">
+    <div data-cy="auteurError" class="error" *ngIf="errorMessage; else loading">
         Error loading the auteur list: {{ errorMessage }}. <br />
     </div>
 </ng-template>

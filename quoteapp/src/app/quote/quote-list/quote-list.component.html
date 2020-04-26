@@ -9,7 +9,7 @@
 
             <div class="quote" *ngFor="let localQuote of quotes$ | async" fxFlex="0 0 calc(100%-0.5%)" fxFlex.xs="100%">
 
-                <app-quote [quote]="localQuote"></app-quote>
+                <app-quote  data-cy="quoteCard"[quote]="localQuote"></app-quote>
 
             </div>
         </div>
@@ -17,9 +17,9 @@
 </div>
 
 <ng-template #loadingOrError>
-    <div class="error" *ngIf="errorMessage; else loading">
-        Error loading the quotes list: {{ errorMessage }}. <br />
-    </div>
+    <mat-error data-cy="quotesError" class="error" *ngIf="errorMessage; else loading">
+        Er ging iets fout bij het laden van de quotes {{ errorMessage }}. <br />
+    </mat-error>
 </ng-template>
 
 <ng-template #loading>
