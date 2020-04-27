@@ -11,7 +11,7 @@ import { Opmerking } from './opmerking.model';
   providedIn: 'root'
 })
 export class QuoteDataService {
- 
+
 
   constructor(private http: HttpClient) { }
 
@@ -31,15 +31,15 @@ export class QuoteDataService {
       .pipe(catchError(this.handleError), map(Quote.fromJSON)); // returns just one recipe, as json
   }
 
-  
+
   getauteur$(naam: string): Observable<Auteur> {
     return this.http.get(`${environment.apiUrl}/auteurs/${naam}`)
-    .pipe(tap(console.log),
-      catchError(this.handleError),
-      map(
-        (Auteur.fromJSON)
-      )
-    );
+      .pipe(tap(console.log),
+        catchError(this.handleError),
+        map(
+          (Auteur.fromJSON)
+        )
+      );
   }
 
   get auteurs$(): Observable<Auteur[]> {
@@ -68,26 +68,26 @@ export class QuoteDataService {
   addNewQuote(quote: Quote) {
     console.log(quote);
     console.log(quote.auteurId);
-    return this.http    
-    .post(`${environment.apiUrl}/quotes/`, quote.toJSON())
-    .pipe(catchError(this.handleError), map(Quote.fromJSON))
-    .subscribe();
+    return this.http
+      .post(`${environment.apiUrl}/quotes/`, quote.toJSON())
+      .pipe(catchError(this.handleError), map(Quote.fromJSON))
+      .subscribe(a => window.location.reload());
   }
 
   addNewAuteur(auteur: Auteur) {
-    return this.http    
-    .post(`${environment.apiUrl}/auteurs/`, auteur.toJSON())
-    .pipe(catchError(this.handleError), map(Auteur.fromJSON))
-    .subscribe();
+    return this.http
+      .post(`${environment.apiUrl}/auteurs/`, auteur.toJSON())
+      .pipe(catchError(this.handleError), map(Auteur.fromJSON))
+      .subscribe(a => window.location.reload());
   }
 
   addNewOpmerking(id: number, opmerking: Opmerking) {
     return this.http.post(`${environment.apiUrl}/quotes/${id}`, opmerking.toJSON())
-    .pipe(catchError(this.handleError), map(Opmerking.fromJSON))
-    .subscribe();
+      .pipe(catchError(this.handleError), map(Opmerking.fromJSON))
+      .subscribe(a => window.location.reload());
   }
 
-  handleError(err: any): Observable<never>  {
+  handleError(err: any): Observable<never> {
     let errorMessage: string;
     if (err instanceof HttpErrorResponse) {
       errorMessage = `'${err.status} ${err.statusText}' when accessing '${err.url}'`;
@@ -100,5 +100,5 @@ export class QuoteDataService {
 
 
 
-  
+
 }
