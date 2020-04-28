@@ -7,12 +7,12 @@
     <mat-card-content>
         <ul>
             <div *ngFor="let quote of auteur.quotes">
-                {{quote.inhoud}}
+               <p [routerLink]="['/quote/detail', quote.id]" style="cursor: pointer;"> {{quote.inhoud}}</p>           
             </div>
         </ul>
     </mat-card-content>
 
-    <mat-card-subtitle> omschrijving</mat-card-subtitle>
+    <mat-card-subtitle> Omschrijving</mat-card-subtitle>
     <mat-card-content>
         <ul>
             {{auteur.omschrijving}}
