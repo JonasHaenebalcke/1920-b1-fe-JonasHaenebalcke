@@ -9,6 +9,11 @@ Dit betekent dat de app offline ook beschikbaar is (in beperkte mate) en downloa
 
 Om dit uit te testen moet je enkele stappen ondernemen:
 
+
+TEST
+2. Another item
+⋅⋅* Unordered sub-list. 
+
 1. Installeer een google extensie: [Moesif Orign & CORS Changer](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc?hl=en) en zet deze rechtsbovenaan op "ON"
 2. Controleer of de backend beschikbaar is
 3. open de terminal in de frontend
