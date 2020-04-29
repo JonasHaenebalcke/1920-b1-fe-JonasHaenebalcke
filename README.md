@@ -9,20 +9,15 @@ Dit betekent dat de app offline ook beschikbaar is (in beperkte mate) en downloa
 
 Om dit uit te testen moet je enkele stappen ondernemen:
 
-
-TEST
-2. Another item
-⋅⋅* Unordered sub-list. 
-
 1. Installeer een google extensie: [Moesif Orign & CORS Changer](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc?hl=en) en zet deze rechtsbovenaan op "ON"
 2. Controleer of de backend beschikbaar is
 3. open de terminal in de frontend
 4. voer volgende commando's in:
-  o cd quoteapp
-  o ng build --prod
-  o cd dist
-  o cd quoteapp
-  o http-server -o
+  * cd quoteapp
+  * ng build --prod
+  * cd dist
+  * cd quoteapp
+  * http-server -o
 5. rechtermuisknop -> inspecteren
 6. menu bovenaan -> audits
 7. klik op generate report (zorg dat Progressive Web App zeker aangevinkt is!)
@@ -35,8 +30,8 @@ Om deze webapplicatie op een normale manier op te starten moet je volgende stapp
 1. controleer of de backend beschikbaar is
 2. open de terminal in de frontend
 3. Voer volgende commando's in:
-  o cd quoteapp
-  o npm start
+  * cd quoteapp
+  * npm start
 
 De webapp hoort nu op te starten en te openen in Google Chrome
 
