@@ -1,11 +1,11 @@
-<mat-card>
+<mat-card style="width: 95%;">
   <mat-card-title>Voeg Quote toe</mat-card-title>
   <mat-card-content>
     <form [formGroup]="quote" (ngSubmit)='onSubmit()'>
 
       <!-- Inputs -->
 
-      <mat-form-field style="width: 500px;">
+      <mat-form-field style="width: 80%;">
         <mat-label>Inhoud van quote</mat-label> <br>
         <!-- <input matInput matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" /> -->
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
@@ -14,7 +14,7 @@
       </mat-form-field>
 
       <br>
-      <mat-form-field style="width: 250px;">
+      <mat-form-field style="width: 50%;">
         <mat-label>Datum</mat-label> <br>
         <input matInput [max]="maxDate" name="auteur" matInput [matDatepicker]="picker" placeholder="Kies datum" aria-label="datum"
           formControlName="datum" readonly>
@@ -32,7 +32,7 @@
       </mat-select>
       </div> -->
 
-      <mat-form-field style="width: 250px;">
+      <mat-form-field style="width: 50%;">
         <mat-label>Auteur</mat-label>
         <mat-select [(ngModel)]="selectedValue" name="auteur" aria-label="auteur" formControlName="auteur">
           <mat-option *ngFor="let auteur of auteurs$ | async" [value]="auteur">
