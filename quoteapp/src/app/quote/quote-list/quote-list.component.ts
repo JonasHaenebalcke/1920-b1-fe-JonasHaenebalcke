@@ -29,10 +29,4 @@ export class QuoteListComponent implements OnInit {
   get quotes$(): Observable<Quote[]>{
    return this._fetchQuotes$;
   }
-
-
-
-  // addNewQuote(quote: Quote){
-  //   this._quoteDataService.addNewQuote(quote);
-  // }
 }

@@ -28,7 +28,7 @@ export class QuoteDataService {
   getQuote(id: string): Observable<Quote> {
     return this.http
       .get(`${environment.apiUrl}/quotes/${id}`)
-      .pipe(catchError(this.handleError), map(Quote.fromJSON)); // returns just one recipe, as json
+      .pipe(catchError(this.handleError), map(Quote.fromJSON));
   }
 
 
@@ -52,18 +52,6 @@ export class QuoteDataService {
       )
     );
   }
-
-
-  // get auteurByName(): Observable<Auteur> {
-  //    console.log("auteurs");
-  //   return this.http.get(`${environment.apiUrl}/auteurs/`).pipe(
-  //     tap(console.log),
-  //     catchError(this.handleError),
-  //     map(
-  //       (auteur : Auteur) =>
-  //     )
-  //   );
-  // }
 
   addNewQuote(quote: Quote) {
     console.log(quote);

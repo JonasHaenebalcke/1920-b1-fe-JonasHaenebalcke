@@ -1,6 +1,5 @@
 <div *ngIf="(quotes$ | async) as quotes; else loadingOrError">
     <div fxLayout="column" fxLayoutGap="2%">
-        <!-- <app-add-quote (newQuote)="addNewQuote($event)"></app-add-quote> -->
     <div *ngIf="(loggedInUser$ | async)">
         <app-add-quote></app-add-quote>
     </div>

@@ -14,7 +14,7 @@
     <mat-card-content>
 
 
-        
+
         <div style="padding: 15px;">
             <div *ngIf="(loggedInUser$ | async)">
                 <app-add-opmerking [quote]="quote"></app-add-opmerking>
@@ -25,18 +25,5 @@
         </div>
 
         <br>
-
-
-
-        <!-- 
-        <form>
-            <input matInput placeholder="inhoud" type="text" #newquoteinhoud />
-        </form>
-        <button (click)="addQuote(newquoteinhoud)" mat-raised-button>
-            Add new quote
-        </button> -->
-
-
-
     </mat-card-content>
 </mat-card>

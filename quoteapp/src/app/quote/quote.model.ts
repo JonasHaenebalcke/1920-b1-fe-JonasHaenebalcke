@@ -3,7 +3,6 @@ import { Auteur } from './auteur.model';
 
 export interface QuoteJson {
     inhoud: string;
-    // rating?: string;
     date: string;
     opmerkingen?: Opmerking[];
     auteurId: number;
@@ -21,7 +20,6 @@ export class Quote {
         private _opmerkingen = new Array<Opmerking>(),
         private _auteurId?: number,
         private _auteur?: Auteur,
-        // private _rating?: number,
         private _id?: number
     ) { }
 
@@ -31,7 +29,7 @@ export class Quote {
     }
 
     static fromJSON(json: QuoteJson): Quote {
-        const quote = new Quote(json.inhoud, new Date(json.date), json.opmerkingen, json.auteur.id, json.auteur,/* Number(json.rating),*/ Number(json.id));
+        const quote = new Quote(json.inhoud, new Date(json.date), json.opmerkingen, json.auteur.id, json.auteur, Number(json.id));
         return quote;
     }
 
@@ -74,12 +72,6 @@ export class Quote {
     public set date(value) {
         this._date = value;
     }
-    // public get rating(): number {
-    //     return this._rating;
-    // }
-    // public set rating(value: number) {
-    //     this._rating = value;
-    // }
     public get inhoud(): string {
         return this._inhoud;
     }

@@ -17,9 +17,7 @@ export class Opmerking {
         private _id?: number
     ) { }
 
-    //#region Getters & Setters
-
-    
+    //#region Getters & Setters    
     public get rating(): number {
         return this._rating;
     }
@@ -38,13 +36,6 @@ export class Opmerking {
     public set date(value) {
         this._date = value;
     }
-    // public get quote() {
-    //     return this._quote;
-    // }
-    // public set quote(value) {
-    //     this._quote = value;
-    // }
-
     public get inhoud(): string {
         return this._inhoud;
     }

@@ -27,18 +27,6 @@ function serverSideValidateUsername(
     );
   };
 }
-// function patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
-//   return (control: AbstractControl): { [key: string]: any } => {
-//     if (!control.value) {
-//       return null;
-//     }
-
-//     // test the value of the control against the regexp supplied
-//     const valid = regex.test(control.value);
-//     // if true, return no error (no error), else return error passed in the second parameter
-//     return valid ? null : error;
-//   };
-// }
 
 
 @Component({
@@ -61,8 +49,6 @@ export class RegisterComponent implements OnInit {
       achternaam: ['', Validators.required],
       gebruikersnaam: ['', [Validators.required,],
         serverSideValidateUsername(this.authService.checkUserNameAvailability)
-        // patternValidator(/[^\s]/, { heeftSpatie: true })
-
       ],
       passwordGroup: this.fb.group({
         wachtwoord: ['', [Validators.required, Validators.minLength(6)]],
@@ -87,9 +73,6 @@ export class RegisterComponent implements OnInit {
     else if (errors.userAlreadyExists) {
       return `Deze gebruikersnaam is al in gebruik`;
     }
-    // else if (errors.heeftSpatie){
-    //   return `Gebruikersnaam mag geen spatie bevatten`
-    // }
   }
 
   onSubmit() {

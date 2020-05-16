@@ -29,6 +29,5 @@ export class AddOpmerkingComponent implements OnInit {
   onSubmit() {
     console.log(new Date().toUTCString())
     this._quoteDataService.addNewOpmerking(this.quote.id, new Opmerking(this.opmerking.value.inhoud, new Date(), this._authenticationService.user$.value, null, null));
-    // this.ngOnInit();
   }
 }

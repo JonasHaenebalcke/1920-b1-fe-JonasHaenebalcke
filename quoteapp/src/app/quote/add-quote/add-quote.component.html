@@ -7,7 +7,6 @@
 
       <mat-form-field style="width: 80%;">
         <mat-label>Inhoud van quote</mat-label> <br>
-        <!-- <input matInput matInput aria-label="inhoud" placeholder="inhoud" type="text" formControlName="inhoud" /> -->
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
           cdkAutosizeMaxRows="5" matInput matInput aria-label="inhoud" placeholder="inhoud" type="text"
           formControlName="inhoud"></textarea>
@@ -23,14 +22,6 @@
       </mat-form-field>
       <br>
 
-      <!-- <div>
-        <mat-select placeholder="Auteur" aria-label="auteur"
-        formControlName="auteur">
-        <mat-option *ngFor="let auteur of auteurs$ | async">
-         {{ auteur.voornaam}} {{auteur.achternaam}}
-        </mat-option>
-      </mat-select>
-      </div> -->
 
       <mat-form-field style="width: 50%;">
         <mat-label>Auteur</mat-label>

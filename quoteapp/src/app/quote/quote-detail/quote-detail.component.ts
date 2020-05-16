@@ -18,15 +18,10 @@ export class QuoteDetailComponent implements OnInit {
   constructor(private _authenticationService: AuthenticationService, private route: ActivatedRoute, private quoteDataService: QuoteDataService) { }
 
   ngOnInit(): void {
-    // const id = this.route.snapshot.paramMap.get('id');
-    // this.quoteDataService.getQuote$(id).subscribe(item => this.quote = item);
-
-    this.route.data.subscribe(item => 
+    this.route.data.subscribe(item =>
       this.quote = item['quote']);
-
-    
   }
 
- 
+
 }
 
