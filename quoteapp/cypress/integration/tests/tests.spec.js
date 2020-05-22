@@ -39,7 +39,7 @@ describe('Tests Quote App', function () {
             response: 'fixture:auteurs.json'
         });
 
-        cy.visit('/auteur/list');
+        cy.visit('/#/auteur/list');
         cy.get('[data-cy=auteurCard]').should('have.length', 3);
     })
 
@@ -51,7 +51,7 @@ describe('Tests Quote App', function () {
           status: 500,
           response: 'ERROR'
         });
-        cy.visit('/auteur/list');
+        cy.visit('/#/auteur/list');
         cy.get('[data-cy=auteurError]').should('be.visible');
       });
 
@@ -65,7 +65,7 @@ describe('Tests Quote App', function () {
             response: 'fixture:opmerkingId2.json'
         });
 
-        cy.visit('/quote/detail/2');
+        cy.visit('/#/quote/detail/2');
         cy.get('[data-cy=opmerkingCard]').should('have.length', 3);
     })
 })
